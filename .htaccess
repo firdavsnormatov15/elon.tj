@@ -1,0 +1,5 @@
+RewriteEngine On
+# /ru/search  →  /ru/search.html
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(tg|ru|en)/([a-z-]+)$ $1/$2.html [L]

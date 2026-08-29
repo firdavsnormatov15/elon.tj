@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>/tg/category.html</loc>
+    <xhtml:link rel="alternate" hreflang="tg" href="/tg/category.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="/ru/category.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/category.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="/tg/category.html"/>
+  </url>
+  <url>
+    <loc>/tg/favorites.html</loc>
+    <xhtml:link rel="alternate" hreflang="tg" href="/tg/favorites.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="/ru/favorites.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/favorites.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="/tg/favorites.html"/>
+  </url>
+  <url>
+    <loc>/tg/index.html</loc>
+    <xhtml:link rel="alternate" hreflang="tg" href="/tg/index.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="/ru/index.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/index.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="/tg/index.html"/>
+  </url>
+  <url>
+    <loc>/tg/listing.html</loc>
+    <xhtml:link rel="alternate" hreflang="tg" href="/tg/listing.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="/ru/listing.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/listing.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="/tg/listing.html"/>
+  </url>
+  <url>
+    <loc>/tg/login.html</loc>
+    <xhtml:link rel="alternate" hreflang="tg" href="/tg/login.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="/ru/login.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/login.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="/tg/login.html"/>
+  </url>
+  <url>
+    <loc>/tg/messages.html</loc>
+    <xhtml:link rel="alternate" hreflang="tg" href="/tg/messages.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="/ru/messages.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/messages.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="/tg/messages.html"/>
+  </url>
+  <url>
+    <loc>/tg/post.html</loc>
+    <xhtml:link rel="alternate" hreflang="tg" href="/tg/post.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="/ru/post.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/post.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="/tg/post.html"/>
+  </url>
+  <url>
+    <loc>/tg/profile.html</loc>
+    <xhtml:link rel="alternate" hreflang="tg" href="/tg/profile.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="/ru/profile.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/profile.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="/tg/profile.html"/>
+  </url>
+  <url>
+    <loc>/tg/register.html</loc>
+    <xhtml:link rel="alternate" hreflang="tg" href="/tg/register.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="/ru/register.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/register.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="/tg/register.html"/>
+  </url>
+  <url>
+    <loc>/tg/search.html</loc>
+    <xhtml:link rel="alternate" hreflang="tg" href="/tg/search.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="/ru/search.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/search.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="/tg/search.html"/>
+  </url>
+  <url>
+    <loc>/ru/category.html</loc>
+    <xhtml:link rel="alternate" hreflang="tg" href="/tg/category.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="/ru/category.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/category.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="/tg/category.html"/>
+  </url>
+  <url>
+    <loc>/ru/favorites.html</loc>
+    <xhtml:link rel="alternate" hreflang="tg" href="/tg/favorites.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="/ru/favorites.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/favorites.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="/tg/favorites.html"/>
+  </url>
+  <url>
+    <loc>/ru/index.html</loc>
+    <xhtml:link rel="alternate" hreflang="tg" href="/tg/index.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="/ru/index.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/index.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="/tg/index.html"/>
+  </url>
+  <url>
+    <loc>/ru/listing.html</loc>
+    <xhtml:link rel="alternate" hreflang="tg" href="/tg/listing.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="/ru/listing.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/listing.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="/tg/listing.html"/>
+  </url>
+  <url>
+    <loc>/ru/login.html</loc>
+    <xhtml:link rel="alternate" hreflang="tg" href="/tg/login.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="/ru/login.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/login.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="/tg/login.html"/>
+  </url>
+  <url>
+    <loc>/ru/messages.html</loc>
+    <xhtml:link rel="alternate" hreflang="tg" href="/tg/messages.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="/ru/messages.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/messages.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="/tg/messages.html"/>
+  </url>
+  <url>
+    <loc>/ru/post.html</loc>
+    <xhtml:link rel="alternate" hreflang="tg" href="/tg/post.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="/ru/post.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/post.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="/tg/post.html"/>
+  </url>
+  <url>
+    <loc>/ru/profile.html</loc>
+    <xhtml:link rel="alternate" hreflang="tg" href="/tg/profile.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="/ru/profile.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/profile.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="/tg/profile.html"/>
+  </url>
+  <url>
+    <loc>/ru/register.html</loc>
+    <xhtml:link rel="alternate" hreflang="tg" href="/tg/register.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="/ru/register.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/register.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="/tg/register.html"/>
+  </url>
+  <url>
+    <loc>/ru/search.html</loc>
+    <xhtml:link rel="alternate" hreflang="tg" href="/tg/search.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="/ru/search.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/search.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="/tg/search.html"/>
+  </url>
+  <url>
+    <loc>/en/category.html</loc>
+    <xhtml:link rel="alternate" hreflang="tg" href="/tg/category.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="/ru/category.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/category.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="/tg/category.html"/>
+  </url>
+  <url>
+    <loc>/en/favorites.html</loc>
+    <xhtml:link rel="alternate" hreflang="tg" href="/tg/favorites.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="/ru/favorites.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/favorites.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="/tg/favorites.html"/>
+  </url>
+  <url>
+    <loc>/en/index.html</loc>
+    <xhtml:link rel="alternate" hreflang="tg" href="/tg/index.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="/ru/index.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/index.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="/tg/index.html"/>
+  </url>
+  <url>
+    <loc>/en/listing.html</loc>
+    <xhtml:link rel="alternate" hreflang="tg" href="/tg/listing.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="/ru/listing.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/listing.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="/tg/listing.html"/>
+  </url>
+  <url>
+    <loc>/en/login.html</loc>
+    <xhtml:link rel="alternate" hreflang="tg" href="/tg/login.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="/ru/login.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/login.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="/tg/login.html"/>
+  </url>
+  <url>
+    <loc>/en/messages.html</loc>
+    <xhtml:link rel="alternate" hreflang="tg" href="/tg/messages.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="/ru/messages.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/messages.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="/tg/messages.html"/>
+  </url>
+  <url>
+    <loc>/en/post.html</loc>
+    <xhtml:link rel="alternate" hreflang="tg" href="/tg/post.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="/ru/post.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/post.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="/tg/post.html"/>
+  </url>
+  <url>
+    <loc>/en/profile.html</loc>
+    <xhtml:link rel="alternate" hreflang="tg" href="/tg/profile.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="/ru/profile.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/profile.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="/tg/profile.html"/>
+  </url>
+  <url>
+    <loc>/en/register.html</loc>
+    <xhtml:link rel="alternate" hreflang="tg" href="/tg/register.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="/ru/register.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/register.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="/tg/register.html"/>
+  </url>
+  <url>
+    <loc>/en/search.html</loc>
+    <xhtml:link rel="alternate" hreflang="tg" href="/tg/search.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="/ru/search.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/search.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="/tg/search.html"/>
+  </url>
+</urlset>

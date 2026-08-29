@@ -1,0 +1,3 @@
+# Забони асосӣ ва clean URL
+/            /tg/index.html   200
+/:lc/:page   /:lc/:page.html  200
