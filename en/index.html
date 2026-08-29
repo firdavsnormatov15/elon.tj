@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" data-i18n-attr="content:meta.index.desc">
+<meta name="keywords" data-i18n-attr="content:meta.index.keywords">
+<meta name="author" content="elon.tj">
+<meta property="og:title" data-i18n-attr="content:meta.index.ogTitle">
+<meta property="og:description" data-i18n-attr="content:meta.index.ogDesc">
+<meta property="og:type" content="website">
+<title data-i18n="meta.index.title"></title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="flex flex-col" style="min-height:100vh;">
+
+<header class="header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo" data-i18n-attr="aria-label:nav.home;title:nav.home">
+      <div class="logo-box">E</div>
+      <span class="logo-word"><span style="color:#4A6CF7">e</span><span style="color:#FF5C39">l</span><span style="color:#FFB020">o</span><span style="color:#4A6CF7">n</span><span style="color:#22A559">.</span><span style="color:#1a1a1a">tj</span></span>
+    </a>
+    <div class="search-box">
+      <span class="search-icon" aria-hidden="true"><span class="ico" data-icon="search"></span></span>
+      <form action="search.html" class="w-full" data-i18n-attr="aria-label:ph.search"><input type="text" name="q" data-i18n-attr="placeholder:ph.search;aria-label:ph.search"><button type="submit" class="search-btn" data-i18n="common.find"></button></form>
+    </div>
+    <nav class="nav-btns" data-i18n-attr="aria-label:nav.mainNav">
+      <a href="messages.html" class="nav-btn" data-i18n-attr="title:nav.messages;aria-label:nav.messages"><span class="ico" data-icon="message-circle"></span></a>
+      <a href="favorites.html" class="nav-btn" data-i18n-attr="title:nav.favorites;aria-label:nav.favorites"><span class="ico" data-icon="heart"></span></a>
+      <a href="profile.html" class="nav-btn" data-i18n-attr="title:nav.profile;aria-label:nav.profile"><span class="ico" data-icon="user"></span></a>
+      <div data-lang-switcher></div>
+      <a href="post.html" class="btn-primary" data-i18n="common.newListing"></a>
+      <button class="mobile-menu-btn" onclick="toggleMenu()" data-i18n-attr="title:nav.menu;aria-label:nav.menu"><span class="ico" data-icon="menu"></span></button>
+    </nav>
+  </div>
+</header>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-header">
+    <a href="index.html" class="logo" data-i18n-attr="aria-label:nav.home;title:nav.home"><div class="logo-box">E</div><span class="logo-word"><span style="color:#4A6CF7">e</span><span style="color:#FF5C39">l</span><span style="color:#FFB020">o</span><span style="color:#4A6CF7">n</span><span style="color:#22A559">.</span><span style="color:#1a1a1a">tj</span></span></a>
+    <button class="mobile-menu-close" onclick="toggleMenu()" data-i18n-attr="title:common.close;aria-label:common.close"><span class="ico" data-icon="x"></span></button>
+  </div>
+  <div data-lang-switcher></div>
+  <ul class="mobile-menu-list">
+    <li><a href="index.html"><span class="menu-icon" style="background:#dbeafe;" aria-hidden="true"><span class="ico" data-icon="house"></span></span> <span data-i18n="menu.home"></span></a></li>
+    <li><a href="search.html"><span class="menu-icon" style="background:#d1fae5;" aria-hidden="true"><span class="ico" data-icon="search"></span></span> <span data-i18n="menu.search"></span></a></li>
+    <li><a href="post.html"><span class="menu-icon" style="background:#ede9fe;" aria-hidden="true"><span class="ico" data-icon="plus"></span></span> <span data-i18n="menu.post"></span></a></li>
+    <li><a href="messages.html"><span class="menu-icon" style="background:#fef3c7;" aria-hidden="true"><span class="ico" data-icon="message-circle"></span></span> <span data-i18n="menu.messages"></span></a></li>
+    <li><a href="favorites.html"><span class="menu-icon" style="background:#ffe4e6;" aria-hidden="true"><span class="ico" data-icon="heart"></span></span> <span data-i18n="menu.favorites"></span></a></li>
+    <li><a href="profile.html"><span class="menu-icon" style="background:#dcfce7;" aria-hidden="true"><span class="ico" data-icon="user"></span></span> <span data-i18n="menu.profile"></span></a></li>
+  </ul>
+  <div style="margin-top:24px;padding-top:24px;border-top:1px solid #e2e8f0;">
+    <p style="font-size:12px;font-weight:600;color:#94a3b8;margin-bottom:12px;text-transform:uppercase;letter-spacing:0.5px;" data-i18n="menu.categories"></p>
+    <div class="mobile-menu-cats" id="mobile-cats"></div>
+  </div>
+</div>
+
+<main style="flex:1;">
+
+<!-- CATEGORY GRID (like Somon.tj homepage) -->
+<section style="padding:20px 0 8px;background:white;">
+  <div class="container">
+    <div id="home-cat-grid" class="cat-grid-home"></div>
+  </div>
+</section>
+
+<!-- Slim promo strip -->
+<section style="padding:8px 0 24px;">
+  <div class="container">
+    <div class="home-promo">
+      <div>
+        <div class="home-promo-title" data-i18n="index.promoTitle"></div>
+        <div class="home-promo-sub" data-i18n="index.promoSub"></div>
+      </div>
+      <a href="post.html" class="btn-primary" style="padding:12px 24px;font-size:14px;white-space:nowrap;" data-i18n="common.postListing"></a>
+    </div>
+  </div>
+</section>
+
+<!-- LATEST LISTINGS -->
+<section class="section bg-white">
+  <div class="container">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;">
+      <h2 class="section-title" data-i18n="index.latest"></h2>
+      <a href="search.html" style="color:#0F7A6B;font-size:14px;font-weight:500;"><span data-i18n="common.all"></span> <span class="ico" data-icon="arrow-right"></span></a>
+    </div>
+    <div id="latest-grid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:24px;"></div>
+    <div class="text-center mt-8">
+      <a href="search.html" class="btn-outline"><span data-i18n="index.allListings"></span> <span class="ico" data-icon="arrow-right"></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- RECENTLY VIEWED -->
+<section class="section bg-white" id="rv-section" style="display:none;padding-top:0;"></section>
+
+<!-- WHY US -->
+<section class="section" style="background:#f8fafc;">
+  <div class="container">
+    <div class="text-center mb-8">
+      <h2 class="section-title" style="justify-content:center;" data-i18n="index.whyTitle"></h2>
+      <p class="text-slate-500" data-i18n="index.whySub"></p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:32px;">
+      <div class="cat-card text-center">
+        <div class="cat-icon" style="margin:0 auto 16px;background:#dbeafe;color:#0F7A6B;" aria-hidden="true"><span class="ico" data-icon="zap"></span></div>
+        <h3 class="cat-name" data-i18n="index.fast"></h3>
+        <p style="font-size:14px;color:#64748b;margin-top:8px;" data-i18n="index.fastDesc"></p>
+      </div>
+      <div class="cat-card text-center">
+        <div class="cat-icon" style="margin:0 auto 16px;background:#d1fae5;color:#1E8449;" aria-hidden="true"><span class="ico" data-icon="shield-check"></span></div>
+        <h3 class="cat-name" data-i18n="index.safe"></h3>
+        <p style="font-size:14px;color:#64748b;margin-top:8px;" data-i18n="index.safeDesc"></p>
+      </div>
+      <div class="cat-card text-center">
+        <div class="cat-icon" style="margin:0 auto 16px;background:#ede9fe;color:#7c3aed;" aria-hidden="true"><span class="ico" data-icon="banknote"></span></div>
+        <h3 class="cat-name" data-i18n="index.free"></h3>
+        <p style="font-size:14px;color:#64748b;margin-top:8px;" data-i18n="index.freeDesc"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;">
+      <div>
+        <div class="logo" style="color:white;margin-bottom:16px;"><span class="logo-word">elon<span style="color:#FFB020">.tj</span></span></div>
+        <p style="font-size:14px;line-height:1.6;" data-i18n="footer.about"></p>
+      </div>
+      <div>
+        <h3 data-i18n="footer.categories"></h3>
+        <div class="footer-cats" id="footer-cats"></div>
+      </div>
+      <div><h3 data-i18n="footer.info"></h3><ul><li><a href="#" data-i18n="footer.aboutUs"></a></li><li><a href="#" data-i18n="footer.rules"></a></li><li><a href="#" data-i18n="footer.help"></a></li></ul></div>
+      <div><h3 data-i18n="footer.contact"></h3><ul><li><span class="ico" data-icon="phone"></span> +992 44 600 00 00</li><li><span class="ico" data-icon="mail"></span> info@elon.tj</li><li><span class="ico" data-icon="map-pin"></span> <span data-i18n="city.dushanbe"></span></li></ul></div>
+    </div>
+    <div class="footer-bottom" data-i18n="footer.rights"></div>
+  </div>
+</footer>
+
+<!-- Луғатҳо (fallback): сайт ҳатто аз file:// бе сервер кор мекунад -->
+<script src="locales/bundles.js"></script>
+<script src="icons.js"></script>
+  <script src="i18n.js"></script>
+<script src="category-engine.js"></script>
+<script src="data.js"></script>
+<script src="storage.js"></script>
+<script src="layout.js"></script>
+<script>
+/* Ҳамаи контенти динамикии саҳифаи асосӣ дар як функсия — то ҳангоми
+   иваз шудани забон фавран аз нав сохта шавад (бе reload). */
+
+function renderLatest(){
+  const grid = document.getElementById('latest-grid');
+  if (grid) grid.innerHTML = listings.slice(0, 12).map(renderCard).join('');
+}
+
+/* Placeholder-и ҷустуҷӯ бо шумораи эълонҳо — мисли сомон.тҷ.
+   Матни воридкардаи корбар нигоҳ дошта мешавад. */
+function renderSearchPlaceholder(){
+  const inp = document.querySelector('.search-box input[name="q"]');
+  if (!inp) return;
+  inp.placeholder = t('ph.searchCount', { n: formatNumber(allListings().length) });
+  inp.setAttribute('aria-label', t('ph.search'));
+}
+
+/* Рубрикаҳо — дар мобилӣ 5 адад + «Ҳамаи рубрикаҳо», дар компютер ҳамаашон */
+function renderHomeCatGrid(){
+  const homeGrid = document.getElementById('home-cat-grid');
+  if (!homeGrid) return;
+  const card = c => `
+      <a href="category.html?slug=${c.slug}" class="cat-card">
+        <div class="cat-icon" aria-hidden="true">${iconHTML(catIcons[c.slug] || 'wrench')}</div>
+        <div class="cat-name">${c.name}</div>
+      </a>`;
+  const isMobile = window.innerWidth < 768;
+  let html = (isMobile ? categories.slice(0, 5) : categories).map(card).join('');
+  if (isMobile) {
+    html += `<a href="search.html" class="cat-card">
+        <div class="cat-icon" aria-hidden="true"><span class="ico" data-icon="layout-grid"></span></div>
+        <div class="cat-name">${t('index.allCategories')}</div>
+      </a>`;
+  }
+  homeGrid.innerHTML = html;
+}
+
+function renderPage(){
+  renderLatest();
+  renderSearchPlaceholder();
+  renderHomeCatGrid();
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', renderPage);
+} else renderPage();
+
+if (window.I18N) I18N.onChange(renderPage);
+
+let _catGridResizeT;
+window.addEventListener('resize', () => {
+  clearTimeout(_catGridResizeT);
+  _catGridResizeT = setTimeout(renderHomeCatGrid, 200);
+});
+</script>
+
+</body>
+</html>

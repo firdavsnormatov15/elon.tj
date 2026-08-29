@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" data-i18n-attr="content:meta.profile.desc">
+<meta property="og:title" data-i18n-attr="content:meta.profile.ogTitle">
+<meta property="og:description" data-i18n-attr="content:meta.profile.ogDesc">
+<title data-i18n="meta.profile.title"></title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="flex flex-col" style="min-height:100vh;">
+
+<header class="header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo" data-i18n-attr="aria-label:nav.home"><span class="logo-word"><span style="color:#4A6CF7">e</span><span style="color:#FF5C39">l</span><span style="color:#FFB020">o</span><span style="color:#4A6CF7">n</span><span style="color:#22A559">.</span><span style="color:#1a1a1a">tj</span></span></a>
+    <div class="search-box"><span class="search-icon" aria-hidden="true"><span class="ico" data-icon="search"></span></span><form action="search.html" style="width:100%;"><input type="text" name="q" data-i18n-attr="placeholder:ph.search;aria-label:ph.search"><button type="submit" class="search-btn" data-i18n="common.find"></button></form></div>
+    <nav class="nav-btns" data-i18n-attr="aria-label:nav.mainNav">
+      <a href="messages.html" class="nav-btn" data-i18n-attr="title:nav.messages;aria-label:nav.messages"><span class="ico" data-icon="message-circle"></span></a>
+      <a href="favorites.html" class="nav-btn" data-i18n-attr="title:nav.favorites;aria-label:nav.favorites"><span class="ico" data-icon="heart"></span></a>
+      <a href="profile.html" class="nav-btn" data-i18n-attr="title:nav.profile;aria-label:nav.profile"><span class="ico" data-icon="user"></span></a>
+      <div data-lang-switcher></div>
+      <a href="post.html" class="btn-primary" data-i18n="common.newListing"></a>
+      <button class="mobile-menu-btn" onclick="toggleMenu()" data-i18n-attr="aria-label:nav.menu;title:nav.menu"><span class="ico" data-icon="menu"></span></button>
+    </nav>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-header">
+    <a href="index.html" class="logo" data-i18n-attr="aria-label:nav.home"><span class="logo-word"><span style="color:#4A6CF7">e</span><span style="color:#FF5C39">l</span><span style="color:#FFB020">o</span><span style="color:#4A6CF7">n</span><span style="color:#22A559">.</span><span style="color:#1a1a1a">tj</span></span></a>
+    <button class="mobile-menu-close" onclick="toggleMenu()" data-i18n-attr="aria-label:common.close;title:common.close"><span class="ico" data-icon="x"></span></button>
+  </div>
+  <div data-lang-switcher></div>
+  <ul class="mobile-menu-list">
+    <li><a href="index.html"><span class="menu-icon" style="background:#dbeafe;" aria-hidden="true"><span class="ico" data-icon="house"></span></span> <span data-i18n="menu.home"></span></a></li>
+    <li><a href="search.html"><span class="menu-icon" style="background:#d1fae5;" aria-hidden="true"><span class="ico" data-icon="search"></span></span> <span data-i18n="menu.search"></span></a></li>
+    <li><a href="post.html"><span class="menu-icon" style="background:#ede9fe;" aria-hidden="true"><span class="ico" data-icon="plus"></span></span> <span data-i18n="menu.post"></span></a></li>
+    <li><a href="messages.html"><span class="menu-icon" style="background:#fef3c7;" aria-hidden="true"><span class="ico" data-icon="message-circle"></span></span> <span data-i18n="menu.messages"></span></a></li>
+    <li><a href="profile.html"><span class="menu-icon" style="background:#ffe4e6;" aria-hidden="true"><span class="ico" data-icon="user"></span></span> <span data-i18n="menu.profile"></span></a></li>
+  </ul>
+</div>
+
+<main style="flex:1;">
+  <div style="background:linear-gradient(135deg,var(--brand),var(--accent));padding:48px 0;color:white;">
+    <div class="container">
+      <div style="display:flex;align-items:center;gap:24px;">
+        <div style="width:96px;height:96px;border-radius:16px;background:white;padding:4px;">
+          <div id="p-avatar" aria-hidden="true" style="width:100%;height:100%;border-radius:12px;background:linear-gradient(135deg,var(--brand),var(--accent));display:flex;align-items:center;justify-content:center;color:white;font-size:36px;font-weight:800;"></div>
+        </div>
+        <div>
+          <h1 style="font-size:24px;font-weight:800;" data-i18n="profile.you"></h1>
+          <div style="display:flex;gap:16px;margin-top:8px;font-size:14px;opacity:0.9;flex-wrap:wrap;">
+            <span><span aria-hidden="true"><span class="ico" data-icon="star"></span></span> <span data-i18n="profile.noRating"></span></span>
+            <span id="p-count"></span>
+            <span id="p-since"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container py-6">
+    <div style="display:grid;grid-template-columns:280px 1fr;gap:24px;" class="profile-grid">
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div class="sidebar">
+          <h3 style="font-weight:700;margin-bottom:16px;" data-i18n="profile.infoTitle"></h3>
+          <div style="display:flex;flex-direction:column;gap:12px;font-size:14px;color:#475569;">
+            <div style="display:flex;align-items:center;gap:8px;"><span aria-hidden="true"><span class="ico" data-icon="phone"></span></span> <span data-i18n="profile.addPhone"></span></div>
+            <div style="display:flex;align-items:center;gap:8px;"><span aria-hidden="true"><span class="ico" data-icon="map-pin"></span></span> <span data-i18n="profile.location"></span></div>
+          </div>
+        </div>
+
+        <div class="sidebar">
+          <h3 style="font-weight:700;margin-bottom:16px;" data-i18n="profile.statsTitle"></h3>
+          <div id="p-stats" style="display:flex;flex-direction:column;gap:10px;font-size:14px;color:#475569;"></div>
+        </div>
+
+        <div class="sidebar" style="padding:8px;">
+          <a href="messages.html" class="sidebar-link"><span aria-hidden="true"><span class="ico" data-icon="message-circle"></span></span> <span style="font-weight:500;" data-i18n="nav.messages"></span><span id="sb-unread" style="margin-left:auto;background:#fee2e2;color:#dc2626;font-size:12px;padding:2px 8px;border-radius:10px;display:none;"></span></a>
+          <a href="favorites.html" class="sidebar-link"><span aria-hidden="true"><span class="ico" data-icon="heart"></span></span> <span style="font-weight:500;" data-i18n="nav.favorites"></span><span id="sb-favcount" style="margin-left:auto;background:#f1f5f9;color:#475569;font-size:12px;padding:2px 8px;border-radius:10px;"></span></a>
+          <a href="post.html" class="sidebar-link"><span aria-hidden="true"><span class="ico" data-icon="plus"></span></span> <span style="font-weight:500;" data-i18n="menu.post"></span></a>
+        </div>
+      </div>
+
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;gap:12px;flex-wrap:wrap;">
+          <h2 id="tab-heading" style="font-size:20px;font-weight:800;color:#0f172a;"></h2>
+          <a href="post.html" class="btn-primary" data-i18n="menu.post"></a>
+        </div>
+
+        <!-- Табҳо -->
+        <div id="p-tabs" role="tablist" data-i18n-attr="aria-label:profile.tabsLabel" style="display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap;"></div>
+
+        <div id="p-panel" style="display:grid;grid-template-columns:repeat(2,1fr);gap:24px;"></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;">
+      <div><div class="logo" style="color:white;margin-bottom:16px;"><span class="logo-word">elon<span style="color:#FFB020">.tj</span></span></div><p style="font-size:14px;line-height:1.6;" data-i18n="footer.about"></p></div>
+      <div><h3 data-i18n="footer.categories"></h3><div class="footer-cats" id="footer-cats"></div></div>
+      <div><h3 data-i18n="footer.info"></h3><ul><li><a href="#" data-i18n="footer.aboutUs"></a></li><li><a href="#" data-i18n="footer.rules"></a></li><li><a href="#" data-i18n="footer.help"></a></li></ul></div>
+      <div><h3 data-i18n="footer.contact"></h3><ul><li><span class="ico" data-icon="phone"></span> +992 44 600 00 00</li><li><span class="ico" data-icon="mail"></span> info@elon.tj</li><li><span aria-hidden="true"><span class="ico" data-icon="map-pin"></span></span> <span data-i18n="city.dushanbe"></span></li></ul></div>
+    </div>
+    <div class="footer-bottom" data-i18n="footer.rights"></div>
+  </div>
+</footer>
+
+<!-- Луғатҳо (fallback): сайт ҳатто аз file:// бе сервер кор мекунад -->
+<script src="locales/bundles.js"></script>
+<script src="icons.js"></script>
+  <script src="i18n.js"></script>
+<script src="category-engine.js"></script>
+<script src="data.js"></script>
+<script src="storage.js"></script>
+<script src="layout.js"></script>
+<script>
+const $ = id => document.getElementById(id);
+const MEMBER_SINCE = '2026';
+
+/* Ҳолати саҳифа: табби фаъол (код, на матн) */
+const state = { tab:'mine' };
+
+const TABS = [
+  { code:'mine',  icon:'package', key:'profile.tabMine' },
+  { code:'favs',  icon:'heart', key:'profile.tabFavorites' },
+  { code:'seen',  icon:'clock', key:'profile.tabViewed' },
+];
+
+function tabItems(code){
+  if (code === 'favs') return getFavorites().map(id => findListing(id)).filter(Boolean);
+  if (code === 'seen') return getRecentlyViewedListings();
+  return getUserListings();
+}
+
+/* ---------------- Сарлавҳа ва статистика ---------------- */
+function renderHero(){
+  $('p-avatar').textContent = (t('profile.you') || '?').trim().charAt(0);
+  const mine = getUserListings();
+  $('p-count').innerHTML = iconHTML('package') + ' ' + t('profile.listingsN', { n: formatNumber(mine.length) });
+  $('p-since').innerHTML = iconHTML('calendar') + ' ' + t('profile.since', { year: MEMBER_SINCE });
+}
+
+function renderStats(){
+  const mine = getUserListings();
+  const views = mine.reduce((s, l) => s + (l.views || 0), 0);
+  const rows = [
+    { icon:'package', key:'profile.statListings', value: mine.length },
+    { icon:'heart', key:'profile.statFavorites', value: getFavorites().length },
+    { icon:'message-circle', key:'profile.statUnread', value: getUnreadCount() },
+    { icon:'eye', key:'profile.statViews', value: views },
+  ];
+  $('p-stats').innerHTML = rows.map(r => `
+    <div style="display:flex;align-items:center;gap:8px;">
+      ${iconHTML(r.icon)}
+      <span>${t(r.key)}</span>
+      <strong style="margin-left:auto;color:#0f172a;">${formatNumber(r.value)}</strong>
+    </div>`).join('');
+}
+
+/* ---------------- Табҳо ---------------- */
+function renderTabs(){
+  $('p-tabs').innerHTML = TABS.map(tb => {
+    const active = state.tab === tb.code;
+    const n = tabItems(tb.code).length;
+    return `<button type="button" role="tab" aria-selected="${active}" onclick="setTab('${tb.code}')"
+      style="padding:10px 16px;border-radius:12px;cursor:pointer;font-size:14px;font-weight:600;
+      border:1px solid ${active ? '#0F7A6B' : '#e2e8f0'};
+      background:${active ? 'linear-gradient(135deg,#0F7A6B,#1E8449)' : 'white'};
+      color:${active ? 'white' : '#334155'};">${iconHTML(tb.icon)} ${t(tb.key)} (${formatNumber(n)})</button>`;
+  }).join('');
+  const cur = TABS.find(tb => tb.code === state.tab) || TABS[0];
+  $('tab-heading').textContent = t(cur.key);
+}
+
+function setTab(code){
+  state.tab = code;
+  renderTabs();
+  renderPanel();
+}
+
+/* ---------------- Панели табби фаъол ---------------- */
+function emptyBlock(icon, titleKey, textKey, ctaKey, ctaHref){
+  return `
+    <div style="grid-column:1/-1;background:white;border-radius:16px;padding:48px;text-align:center;border:1px solid #e2e8f0;">
+      <div style="font-size:44px;margin-bottom:16px;color:#94a3b8;" aria-hidden="true">${iconHTML(icon)}</div>
+      <h3 style="font-size:18px;font-weight:700;color:#334155;">${t(titleKey)}</h3>
+      <p style="color:#64748b;margin-top:8px;margin-bottom:24px;">${t(textKey)}</p>
+      ${ctaKey ? `<a href="${ctaHref}" class="btn-primary">${t(ctaKey)}</a>` : ''}
+    </div>`;
+}
+
+function renderPanel(){
+  const box = $('p-panel');
+  const items = tabItems(state.tab);
+
+  if (!items.length){
+    if (state.tab === 'favs') box.innerHTML = emptyBlock('heart', 'profile.emptyFavTitle', 'profile.emptyFavText', 'profile.emptyFavCta', 'search.html');
+    else if (state.tab === 'seen') box.innerHTML = emptyBlock('clock', 'profile.emptySeenTitle', 'profile.emptySeenText', 'profile.emptySeenCta', 'index.html');
+    else box.innerHTML = emptyBlock('package', 'profile.emptyTitle', 'profile.emptyText', 'profile.emptyCta', 'post.html');
+    return;
+  }
+
+  box.innerHTML = items.map(l => {
+    const canDelete = state.tab === 'mine';
+    return `<div style="position:relative;">
+      ${renderCard(l)}
+      ${canDelete ? `<button onclick="removeMyListing('${l.id}')" title="${t('common.delete')}" aria-label="${t('common.delete')}"
+        style="position:absolute;bottom:10px;right:10px;width:30px;height:30px;border-radius:8px;background:rgba(255,255,255,0.95);border:1px solid #fecaca;color:#dc2626;cursor:pointer;font-size:13px;box-shadow:0 2px 6px rgba(0,0,0,0.1);"><span class="ico" data-icon="trash-2"></span></button>` : ''}
+    </div>`;
+  }).join('');
+}
+
+/* ---------------- Амалҳо ---------------- */
+function removeMyListing(id){
+  if (!confirm(t('profile.confirmDelete'))) return;
+  deleteUserListing(id);
+  renderPage();
+}
+
+function renderSidebarCounters(){
+  const unread = getUnreadCount();
+  const sb = $('sb-unread');
+  sb.textContent = unread > 0 ? formatNumber(unread) : '';
+  sb.style.display = unread > 0 ? 'inline-block' : 'none';
+  $('sb-favcount').textContent = formatNumber(getFavorites().length);
+}
+
+/* ---------------- Render-и умумӣ ---------------- */
+function renderPage(){
+  renderHero();
+  renderStats();
+  renderTabs();
+  renderPanel();
+  renderSidebarCounters();
+}
+
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', renderPage);
+else renderPage();
+
+/* Иваз шудани забон — фавран, бо нигоҳ доштани табби фаъол */
+I18N.onChange(renderPage);
+</script>
+</body></html>
