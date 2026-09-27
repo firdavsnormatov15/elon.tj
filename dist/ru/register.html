@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" data-i18n-attr="content:meta.register.desc"><meta property="og:title" data-i18n-attr="content:meta.register.ogTitle"><meta property="og:description" data-i18n-attr="content:meta.register.ogDesc"><title data-i18n="meta.register.title"></title><link rel="stylesheet" href="style.css"></head>
+<body class="auth-page hide-tabbar">
+<div class="auth-card">
+  <div style="display:flex;justify-content:center;margin-bottom:16px;"><div data-lang-switcher></div></div>
+  <div class="auth-logo" aria-hidden="true">E</div>
+  <div class="text-center mb-6">
+    <h1 style="font-size:24px;font-weight:800;color:#0f172a;" data-i18n="register.title"></h1>
+    <p style="color:#64748b;margin-top:8px;" data-i18n="register.subtitle"></p>
+  </div>
+  <form id="register-form" style="display:flex;flex-direction:column;gap:16px;" novalidate>
+    <div class="form-group">
+      <div style="position:relative;"><span style="position:absolute;left:16px;top:50%;transform:translateY(-50%);opacity:0.5;" aria-hidden="true"><span class="ico" data-icon="user"></span></span>
+        <input type="text" id="reg-name" class="form-input" style="padding-left:48px;" autocomplete="name" data-i18n-attr="placeholder:ph.name;aria-label:ph.name"></div>
+      <p class="error-msg" data-err-for="reg-name"></p>
+    </div>
+    <div class="form-group">
+      <div style="position:relative;"><span style="position:absolute;left:16px;top:50%;transform:translateY(-50%);opacity:0.5;" aria-hidden="true"><span class="ico" data-icon="phone"></span></span>
+        <input type="tel" id="reg-phone" class="form-input" style="padding-left:48px;" autocomplete="tel" data-i18n-attr="placeholder:ph.phone;aria-label:ph.phone"></div>
+      <p class="error-msg" data-err-for="reg-phone"></p>
+    </div>
+    <div class="form-group">
+      <div style="position:relative;"><span style="position:absolute;left:16px;top:50%;transform:translateY(-50%);opacity:0.5;" aria-hidden="true"><span class="ico" data-icon="mail"></span></span>
+        <input type="email" id="reg-email" class="form-input" style="padding-left:48px;" autocomplete="email" data-i18n-attr="placeholder:ph.email;aria-label:ph.email"></div>
+      <p class="error-msg" data-err-for="reg-email"></p>
+    </div>
+    <div class="form-group">
+      <div style="position:relative;"><span style="position:absolute;left:16px;top:50%;transform:translateY(-50%);opacity:0.5;" aria-hidden="true"><span class="ico" data-icon="lock"></span></span>
+        <input type="password" id="reg-password" class="form-input" style="padding-left:48px;" autocomplete="new-password" data-i18n-attr="placeholder:ph.password;aria-label:ph.password"></div>
+      <p class="error-msg" data-err-for="reg-password"></p>
+    </div>
+    <div class="form-group">
+      <label style="display:flex;align-items:flex-start;gap:8px;font-size:14px;color:#475569;cursor:pointer;">
+        <input type="checkbox" id="reg-terms" style="margin-top:4px;width:16px;height:16px;">
+        <span data-i18n-html="register.agree"></span>
+      </label>
+      <p class="error-msg" data-err-for="reg-terms"></p>
+    </div>
+    <button type="submit" class="btn-primary" style="width:100%;border:none;cursor:pointer;padding:14px;" data-i18n="register.submit"></button>
+  </form>
+  <div class="text-center mt-6" style="font-size:14px;color:#64748b;">
+    <span data-i18n="register.haveAccount"></span> <a href="login.html" style="color:#0F7A6B;font-weight:600;" data-i18n="register.loginLink"></a>
+  </div>
+</div>
+
+<!-- Луғатҳо (fallback): сайт ҳатто аз file:// бе сервер кор мекунад -->
+<script src="locales/bundles.js"></script>
+<script src="icons.js"></script>
+  <script src="i18n.js"></script>
+<script src="category-engine.js"></script>
+<script src="data.js"></script>
+<script src="storage.js"></script>
+<script src="layout.js"></script>
+<script>
+/* Валидатсия — матни хатоҳо танҳо аз калидҳои err.* гирифта мешавад.
+   Калиди хатои ҷорӣ дар data-err-key мемонад <span class="ico" data-icon="arrow-right"></span> ҳангоми иваз шудани забон
+   фавран тарҷума мешавад ва воридкардаҳои корбар гум намешаванд. */
+function errBox(id){ return document.querySelector('.error-msg[data-err-for="' + id + '"]'); }
+
+function setFieldError(el, key){
+  const box = errBox(el.id);
+  if (key) {
+    el.classList.add('error');
+    el.setAttribute('aria-invalid', 'true');
+    if (box) { box.setAttribute('data-err-key', key); box.textContent = t(key); box.classList.add('show'); }
+  } else {
+    el.classList.remove('error');
+    el.removeAttribute('aria-invalid');
+    if (box) { box.removeAttribute('data-err-key'); box.textContent = ''; box.classList.remove('show'); }
+  }
+}
+function refreshErrorTexts(){
+  document.querySelectorAll('.error-msg[data-err-key]').forEach(box => {
+    box.textContent = t(box.getAttribute('data-err-key'));
+  });
+}
+
+const RE_EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+const RE_PHONE = /^\+?[0-9\s()-]{9,}$/;
+
+function validateRegister(){
+  const name = document.getElementById('reg-name');
+  const phone = document.getElementById('reg-phone');
+  const email = document.getElementById('reg-email');
+  const pass = document.getElementById('reg-password');
+  const terms = document.getElementById('reg-terms');
+  let ok = true;
+
+  if (!name.value.trim()) { setFieldError(name, 'err.required'); ok = false; }
+  else if (name.value.trim().length < 2) { setFieldError(name, 'err.nameShort'); ok = false; }
+  else setFieldError(name, null);
+
+  if (!phone.value.trim()) { setFieldError(phone, 'err.required'); ok = false; }
+  else if (!RE_PHONE.test(phone.value.trim())) { setFieldError(phone, 'err.phoneInvalid'); ok = false; }
+  else setFieldError(phone, null);
+
+  if (!email.value.trim()) { setFieldError(email, 'err.required'); ok = false; }
+  else if (!RE_EMAIL.test(email.value.trim())) { setFieldError(email, 'err.emailInvalid'); ok = false; }
+  else setFieldError(email, null);
+
+  if (!pass.value) { setFieldError(pass, 'err.required'); ok = false; }
+  else if (pass.value.length < 6) { setFieldError(pass, 'err.passwordShort'); ok = false; }
+  else setFieldError(pass, null);
+
+  if (!terms.checked) { setFieldError(terms, 'err.termsRequired'); ok = false; }
+  else setFieldError(terms, null);
+
+  return ok;
+}
+
+function initRegister(){
+  const form = document.getElementById('register-form');
+  if (!form) return;
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (validateRegister()) location.href = 'index.html';
+  });
+  form.querySelectorAll('.form-input').forEach(inp => {
+    inp.addEventListener('input', () => { if (inp.classList.contains('error')) setFieldError(inp, null); });
+  });
+  const terms = document.getElementById('reg-terms');
+  if (terms) terms.addEventListener('change', () => { if (terms.checked) setFieldError(terms, null); });
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initRegister);
+} else initRegister();
+
+if (window.I18N) I18N.onChange(refreshErrorTexts);
+</script>
+</body></html>

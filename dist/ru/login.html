@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" data-i18n-attr="content:meta.login.desc"><meta property="og:title" data-i18n-attr="content:meta.login.ogTitle"><meta property="og:description" data-i18n-attr="content:meta.login.ogDesc"><title data-i18n="meta.login.title"></title><link rel="stylesheet" href="style.css"></head>
+<body class="auth-page hide-tabbar">
+<div class="auth-card">
+  <div style="display:flex;justify-content:center;margin-bottom:16px;"><div data-lang-switcher></div></div>
+  <div class="auth-logo" aria-hidden="true">E</div>
+  <div class="text-center mb-6">
+    <h1 style="font-size:24px;font-weight:800;color:#0f172a;" data-i18n="login.title"></h1>
+    <p style="color:#64748b;margin-top:8px;" data-i18n="login.subtitle"></p>
+  </div>
+  <form id="login-form" style="display:flex;flex-direction:column;gap:16px;" novalidate>
+    <div class="form-group">
+      <div style="position:relative;">
+        <span style="position:absolute;left:16px;top:50%;transform:translateY(-50%);opacity:0.5;" aria-hidden="true"><span class="ico" data-icon="mail"></span></span>
+        <input type="email" id="login-email" name="email" class="form-input" style="padding-left:48px;" autocomplete="username"
+               data-i18n-attr="placeholder:ph.emailOrPhone;aria-label:ph.emailOrPhone">
+      </div>
+      <p class="error-msg" data-err-for="login-email"></p>
+    </div>
+    <div class="form-group">
+      <div style="position:relative;">
+        <span style="position:absolute;left:16px;top:50%;transform:translateY(-50%);opacity:0.5;" aria-hidden="true"><span class="ico" data-icon="lock"></span></span>
+        <input type="password" id="login-password" name="password" class="form-input" style="padding-left:48px;" autocomplete="current-password"
+               data-i18n-attr="placeholder:ph.password;aria-label:ph.password">
+      </div>
+      <p class="error-msg" data-err-for="login-password"></p>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;font-size:14px;gap:12px;">
+      <label style="display:flex;align-items:center;gap:8px;color:#475569;cursor:pointer;"><input type="checkbox" id="login-remember" style="width:16px;height:16px;"> <span data-i18n="login.remember"></span></label>
+      <a href="#" style="color:#0F7A6B;" data-i18n="login.forgot"></a>
+    </div>
+    <button type="submit" class="btn-primary" style="width:100%;border:none;cursor:pointer;padding:14px;" data-i18n="login.submit"></button>
+  </form>
+  <div class="text-center mt-6" style="font-size:14px;color:#64748b;">
+    <span data-i18n="login.noAccount"></span> <a href="register.html" style="color:#0F7A6B;font-weight:600;" data-i18n="login.registerLink"></a>
+  </div>
+</div>
+
+<!-- Луғатҳо (fallback): сайт ҳатто аз file:// бе сервер кор мекунад -->
+<script src="locales/bundles.js"></script>
+<script src="icons.js"></script>
+  <script src="i18n.js"></script>
+<script src="category-engine.js"></script>
+<script src="data.js"></script>
+<script src="storage.js"></script>
+<script src="layout.js"></script>
+<script>
+/* Валидатсия — ҳамаи матни хато танҳо КАЛИД (err.*).
+   Калиди хатои ҷорӣ дар data-err-key нигоҳ дошта мешавад, то ҳангоми
+   иваз шудани забон матн фавран тарҷума шавад (бе гум шудани ҳолат). */
+function errBox(input){
+  return document.querySelector('.error-msg[data-err-for="' + input.id + '"]');
+}
+function setFieldError(input, key){
+  const box = errBox(input);
+  if (key) {
+    input.classList.add('error');
+    input.setAttribute('aria-invalid', 'true');
+    if (box) { box.setAttribute('data-err-key', key); box.textContent = t(key); box.classList.add('show'); }
+  } else {
+    input.classList.remove('error');
+    input.removeAttribute('aria-invalid');
+    if (box) { box.removeAttribute('data-err-key'); box.textContent = ''; box.classList.remove('show'); }
+  }
+}
+function refreshErrorTexts(){
+  document.querySelectorAll('.error-msg[data-err-key]').forEach(box => {
+    box.textContent = t(box.getAttribute('data-err-key'));
+  });
+}
+
+const RE_EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+const RE_PHONE = /^\+?[0-9\s()-]{9,}$/;
+
+function validateLogin(){
+  const email = document.getElementById('login-email');
+  const pass = document.getElementById('login-password');
+  let ok = true;
+  const idv = email.value.trim();
+  if (!idv) { setFieldError(email, 'err.required'); ok = false; }
+  else if (!RE_EMAIL.test(idv) && !RE_PHONE.test(idv)) { setFieldError(email, 'err.emailOrPhoneInvalid'); ok = false; }
+  else setFieldError(email, null);
+
+  if (!pass.value) { setFieldError(pass, 'err.required'); ok = false; }
+  else if (pass.value.length < 6) { setFieldError(pass, 'err.passwordShort'); ok = false; }
+  else setFieldError(pass, null);
+
+  return ok;
+}
+
+function initLogin(){
+  const form = document.getElementById('login-form');
+  if (!form) return;
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (validateLogin()) location.href = 'index.html';
+  });
+  form.querySelectorAll('input[type="email"],input[type="password"]').forEach(inp => {
+    inp.addEventListener('input', () => { if (inp.classList.contains('error')) setFieldError(inp, null); });
+  });
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initLogin);
+} else initLogin();
+
+if (window.I18N) I18N.onChange(refreshErrorTexts);
+</script>
+</body></html>

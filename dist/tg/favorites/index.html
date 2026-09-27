@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="tg">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" data-i18n-attr="content:meta.favorites.desc"><meta property="og:title" data-i18n-attr="content:meta.favorites.ogTitle"><meta property="og:description" data-i18n-attr="content:meta.favorites.ogDesc"><title data-i18n="meta.favorites.title"></title><link rel="stylesheet" href="style.css"></head>
+<body class="flex flex-col" style="min-height:100vh;">
+
+<header class="header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo" data-i18n-attr="aria-label:nav.home;title:nav.home"><span class="logo-word"><span style="color:#4A6CF7">e</span><span style="color:#FF5C39">l</span><span style="color:#FFB020">o</span><span style="color:#4A6CF7">n</span><span style="color:#22A559">.</span><span style="color:#1a1a1a">tj</span></span></a>
+    <div class="search-box"><span class="search-icon" aria-hidden="true"><span class="ico" data-icon="search"></span></span><form action="search.html" style="width:100%;" data-i18n-attr="aria-label:ph.search"><input type="text" name="q" data-i18n-attr="placeholder:ph.search;aria-label:ph.search"><button type="submit" class="search-btn" data-i18n="common.find"></button></form></div>
+    <nav class="nav-btns" data-i18n-attr="aria-label:nav.mainNav">
+      <a href="messages.html" class="nav-btn" style="position:relative;" data-i18n-attr="title:nav.messages;aria-label:nav.messages"><span class="ico" data-icon="message-circle"></span></a>
+      <a href="favorites.html" class="nav-btn" data-i18n-attr="title:nav.favorites;aria-label:nav.favorites"><span class="ico" data-icon="heart"></span></a>
+      <a href="profile.html" class="nav-btn" data-i18n-attr="title:nav.profile;aria-label:nav.profile"><span class="ico" data-icon="user"></span></a>
+      <div data-lang-switcher></div>
+      <a href="post.html" class="btn-primary" data-i18n="common.newListing"></a>
+      <button class="mobile-menu-btn" onclick="toggleMenu()" data-i18n-attr="title:nav.menu;aria-label:nav.menu"><span class="ico" data-icon="menu"></span></button>
+    </nav>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-header">
+    <a href="index.html" class="logo" data-i18n-attr="aria-label:nav.home;title:nav.home"><span class="logo-word"><span style="color:#4A6CF7">e</span><span style="color:#FF5C39">l</span><span style="color:#FFB020">o</span><span style="color:#4A6CF7">n</span><span style="color:#22A559">.</span><span style="color:#1a1a1a">tj</span></span></a>
+    <button class="mobile-menu-close" onclick="toggleMenu()" data-i18n-attr="title:common.close;aria-label:common.close"><span class="ico" data-icon="x"></span></button>
+  </div>
+  <div data-lang-switcher></div>
+  <ul class="mobile-menu-list">
+    <li><a href="index.html"><span class="menu-icon" style="background:#dbeafe;" aria-hidden="true"><span class="ico" data-icon="house"></span></span> <span data-i18n="menu.home"></span></a></li>
+    <li><a href="search.html"><span class="menu-icon" style="background:#d1fae5;" aria-hidden="true"><span class="ico" data-icon="search"></span></span> <span data-i18n="menu.search"></span></a></li>
+    <li><a href="post.html"><span class="menu-icon" style="background:#ede9fe;" aria-hidden="true"><span class="ico" data-icon="plus"></span></span> <span data-i18n="menu.post"></span></a></li>
+    <li><a href="messages.html"><span class="menu-icon" style="background:#fef3c7;" aria-hidden="true"><span class="ico" data-icon="message-circle"></span></span> <span data-i18n="menu.messages"></span></a></li>
+    <li><a href="favorites.html"><span class="menu-icon" style="background:#ffe4e6;" aria-hidden="true"><span class="ico" data-icon="heart"></span></span> <span data-i18n="menu.favorites"></span></a></li>
+    <li><a href="profile.html"><span class="menu-icon" style="background:#dcfce7;" aria-hidden="true"><span class="ico" data-icon="user"></span></span> <span data-i18n="menu.profile"></span></a></li>
+  </ul>
+</div>
+
+<main style="flex:1;">
+  <div class="container py-6">
+    <h1 style="font-size:24px;font-weight:800;color:#0f172a;margin-bottom:20px;"><span class="ico" data-icon="heart"></span> <span data-i18n="favorites.title"></span></h1>
+    <p id="fav-count" style="color:#64748b;margin-top:-12px;margin-bottom:20px;font-size:14px;"></p>
+    <div id="fav-grid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:24px;"></div>
+    <div id="fav-empty" style="display:none;text-align:center;padding:80px 0;">
+      <div style="width:80px;height:80px;border-radius:50%;background:#f1f5f9;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:32px;" aria-hidden="true"><span class="ico" data-icon="heart"></span></div>
+      <h3 style="font-size:18px;font-weight:600;color:#334155;" data-i18n="favorites.emptyTitle"></h3>
+      <p style="color:#64748b;margin-top:8px;margin-bottom:24px;" data-i18n="favorites.emptyText"></p>
+      <a href="index.html" class="btn-primary" data-i18n="favorites.browse"></a>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;">
+      <div><div class="logo" style="color:white;margin-bottom:16px;"><span class="logo-word">elon<span style="color:#FFB020">.tj</span></span></div><p style="font-size:14px;line-height:1.6;" data-i18n="footer.about"></p></div>
+      <div><h3 data-i18n="footer.categories"></h3><div class="footer-cats" id="footer-cats"></div></div>
+      <div><h3 data-i18n="footer.info"></h3><ul><li><a href="#" data-i18n="footer.aboutUs"></a></li><li><a href="#" data-i18n="footer.rules"></a></li><li><a href="#" data-i18n="footer.help"></a></li></ul></div>
+      <div><h3 data-i18n="footer.contact"></h3><ul><li><span class="ico" data-icon="phone"></span> +992 44 600 00 00</li><li><span class="ico" data-icon="mail"></span> info@elon.tj</li><li><span class="ico" data-icon="map-pin"></span> <span data-i18n="city.dushanbe"></span></li></ul></div>
+    </div>
+    <div class="footer-bottom" data-i18n="footer.rights"></div>
+  </div>
+</footer>
+
+<!-- Луғатҳо (fallback): сайт ҳатто аз file:// бе сервер кор мекунад -->
+<script src="locales/bundles.js"></script>
+<script src="icons.js"></script>
+  <script src="i18n.js"></script>
+<script src="category-engine.js"></script>
+<script src="data.js"></script>
+<script src="storage.js"></script>
+<script src="layout.js"></script>
+<script>
+/* Рӯйхати дӯстдоштаҳо — ҳамаи матн аз калидҳо, аз нав сохтан ҳангоми
+   иваз шудани забон (бе reload, ҳолати корбар нигоҳ дошта мешавад). */
+function renderFavorites(){
+  const grid = document.getElementById('fav-grid');
+  const empty = document.getElementById('fav-empty');
+  const countEl = document.getElementById('fav-count');
+  if (!grid || !empty) return;
+  const favs = getFavorites().map(id => findListing(id)).filter(Boolean);
+  if (!favs.length) {
+    grid.style.display = 'none';
+    grid.innerHTML = '';
+    empty.style.display = 'block';
+    if (countEl) countEl.textContent = '';
+  } else {
+    grid.style.display = 'grid';
+    empty.style.display = 'none';
+    grid.innerHTML = favs.map(renderCard).join('');
+    if (countEl) countEl.textContent = t('favorites.count', { n: formatNumber(favs.length) });
+  }
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', renderFavorites);
+} else renderFavorites();
+
+if (window.I18N) I18N.onChange(renderFavorites);
+
+/* Агар корбар дар ҳамин саҳифа дилро зер кунад, рӯйхатро нав мекунем */
+document.addEventListener('click', (e) => {
+  if (e.target.closest && e.target.closest('#fav-grid .fav-btn')) setTimeout(renderFavorites, 50);
+});
+</script>
+</body></html>

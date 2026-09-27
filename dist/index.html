@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="tg">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>elon.tj</title>
+<link rel="alternate" hreflang="tg" href="./tg/">
+<link rel="alternate" hreflang="ru" href="./ru/">
+<link rel="alternate" hreflang="en" href="./en/">
+<link rel="alternate" hreflang="x-default" href="./tg/">
+</head>
+<body>
+<script>
+/* Забонро муайян мекунем: интихоби қаблӣ → браузер → tg */
+(function(){
+  var L = ['tg','ru','en'], d = 'tg', lc = null;
+  try { lc = localStorage.getItem('NEXT_LOCALE'); } catch(e){}
+  if (!lc) {
+    var m = document.cookie.match(/(?:^|;)\s*NEXT_LOCALE\s*=\s*([^;]+)/);
+    if (m) lc = decodeURIComponent(m[1]);
+  }
+  if (L.indexOf(lc) === -1) {
+    var langs = navigator.languages || [navigator.language || ''];
+    lc = null;
+    for (var i = 0; i < langs.length && !lc; i++) {
+      var c = String(langs[i]).toLowerCase().split('-')[0];
+      if (c === 'ru') lc = 'ru';
+      else if (c === 'en') lc = 'en';
+      else if (c === 'tg' || c === 'tj') lc = 'tg';
+    }
+    lc = lc || d;
+  }
+  location.replace('./' + lc + '/index.html' + location.search);
+})();
+</script>
+<noscript><a href="./tg/index.html">elon.tj</a></noscript>
+</body>
+</html>

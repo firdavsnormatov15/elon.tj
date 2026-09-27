@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" data-i18n-attr="content:meta.category.desc">
+<meta property="og:title" data-i18n-attr="content:meta.category.ogTitle">
+<meta property="og:description" data-i18n-attr="content:meta.category.ogDesc">
+<title data-i18n="meta.category.title"></title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="flex flex-col" style="min-height:100vh;">
+
+<header class="header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo" data-i18n-attr="aria-label:nav.home"><span class="logo-word"><span style="color:#4A6CF7">e</span><span style="color:#FF5C39">l</span><span style="color:#FFB020">o</span><span style="color:#4A6CF7">n</span><span style="color:#22A559">.</span><span style="color:#1a1a1a">tj</span></span></a>
+    <div class="search-box"><span class="search-icon" aria-hidden="true"><span class="ico" data-icon="search"></span></span><form action="search.html" style="width:100%;"><input type="text" name="q" data-i18n-attr="placeholder:ph.search;aria-label:ph.search"><button type="submit" class="search-btn" data-i18n="common.find"></button></form></div>
+    <nav class="nav-btns" data-i18n-attr="aria-label:nav.mainNav">
+      <a href="messages.html" class="nav-btn" data-i18n-attr="title:nav.messages;aria-label:nav.messages"><span class="ico" data-icon="message-circle"></span></a>
+      <a href="favorites.html" class="nav-btn" data-i18n-attr="title:nav.favorites;aria-label:nav.favorites"><span class="ico" data-icon="heart"></span></a>
+      <a href="profile.html" class="nav-btn" data-i18n-attr="title:nav.profile;aria-label:nav.profile"><span class="ico" data-icon="user"></span></a>
+      <div data-lang-switcher></div>
+      <a href="post.html" class="btn-primary" data-i18n="common.newListing"></a>
+      <button class="mobile-menu-btn" onclick="toggleMenu()" data-i18n-attr="aria-label:nav.menu;title:nav.menu"><span class="ico" data-icon="menu"></span></button>
+    </nav>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-header">
+    <a href="index.html" class="logo" data-i18n-attr="aria-label:nav.home"><span class="logo-word"><span style="color:#4A6CF7">e</span><span style="color:#FF5C39">l</span><span style="color:#FFB020">o</span><span style="color:#4A6CF7">n</span><span style="color:#22A559">.</span><span style="color:#1a1a1a">tj</span></span></a>
+    <button class="mobile-menu-close" onclick="toggleMenu()" data-i18n-attr="aria-label:common.close;title:common.close"><span class="ico" data-icon="x"></span></button>
+  </div>
+  <div data-lang-switcher></div>
+  <ul class="mobile-menu-list">
+    <li><a href="index.html"><span class="menu-icon" style="background:#dbeafe;" aria-hidden="true"><span class="ico" data-icon="house"></span></span> <span data-i18n="menu.home"></span></a></li>
+    <li><a href="search.html"><span class="menu-icon" style="background:#d1fae5;" aria-hidden="true"><span class="ico" data-icon="search"></span></span> <span data-i18n="menu.search"></span></a></li>
+    <li><a href="post.html"><span class="menu-icon" style="background:#ede9fe;" aria-hidden="true"><span class="ico" data-icon="plus"></span></span> <span data-i18n="menu.post"></span></a></li>
+    <li><a href="messages.html"><span class="menu-icon" style="background:#fef3c7;" aria-hidden="true"><span class="ico" data-icon="message-circle"></span></span> <span data-i18n="menu.messages"></span></a></li>
+    <li><a href="profile.html"><span class="menu-icon" style="background:#ffe4e6;" aria-hidden="true"><span class="ico" data-icon="user"></span></span> <span data-i18n="menu.profile"></span></a></li>
+  </ul>
+  <div style="margin-top:24px;padding-top:24px;border-top:1px solid #e2e8f0;">
+    <p style="font-size:12px;font-weight:600;color:#94a3b8;margin-bottom:12px;text-transform:uppercase;letter-spacing:0.5px;" data-i18n="menu.categories"></p>
+    <div class="mobile-menu-cats" id="mobile-cats"></div>
+  </div>
+</div>
+
+<main style="flex:1;">
+  <div class="container py-6">
+    <nav class="breadcrumb" data-i18n-attr="aria-label:nav.breadcrumb">
+      <a href="index.html" data-i18n="nav.home"></a>
+      <span class="breadcrumb-sep" aria-hidden="true">/</span>
+      <span id="crumb-cat"></span>
+    </nav>
+
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+      <div class="cat-icon" id="cat-hero-icon" aria-hidden="true" style="width:52px;height:52px;font-size:26px;"><span class="ico" data-icon="wrench"></span></div>
+      <div>
+        <h1 id="cat-title" style="font-size:26px;font-weight:800;color:#0f172a;line-height:1.2;"></h1>
+        <span id="cat-count" style="font-size:13px;color:#64748b;"></span>
+      </div>
+    </div>
+
+    <!-- Зердастаҳо бо шумора — мисли сомон.тҷ -->
+    <div class="subcat-count-grid" id="subcat-count-grid"></div>
+
+    <!-- Панели филтр — мобилӣ -->
+    <div class="mobile-filter-bar" id="mobile-filter-bar"></div>
+
+    <div class="filter-scrim" id="filter-scrim" onclick="closeFilterPanel()"></div>
+
+    <div class="cat-layout">
+      <!-- SIDEBAR FILTERS -->
+      <aside class="filter-box" id="filter-box">
+        <div class="filter-box-head">
+          <h3 style="margin-bottom:0;"><span aria-hidden="true"><span class="ico" data-icon="sliders-horizontal"></span></span> <span data-i18n="common.filters"></span></h3>
+          <button class="filter-box-close" onclick="closeFilterPanel()" data-i18n-attr="aria-label:common.close;title:common.close"><span class="ico" data-icon="x"></span></button>
+        </div>
+
+        <div class="filter-group">
+          <span class="filter-label" data-i18n="category.subcategory"></span>
+          <div id="f-subcats"></div>
+        </div>
+
+        <div class="filter-group" id="brand-filter-group" style="display:none;">
+          <span class="filter-label" data-i18n="category.brand"></span>
+          <div id="f-brands"></div>
+        </div>
+
+        <div class="filter-group">
+          <span class="filter-label" data-i18n="category.priceLabel"></span>
+          <div class="filter-price-row">
+            <input type="number" id="f-min" data-i18n-attr="placeholder:common.from;aria-label:search.priceFrom">
+            <span style="color:#94a3b8;" aria-hidden="true">—</span>
+            <input type="number" id="f-max" data-i18n-attr="placeholder:common.to;aria-label:search.priceTo">
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <span class="filter-label" data-i18n="search.city"></span>
+          <select id="f-city" class="form-input" onchange="applyFilters()" data-i18n-attr="aria-label:search.city"></select>
+        </div>
+
+        <div class="filter-group">
+          <span class="filter-label" data-i18n="search.condition"></span>
+          <div id="f-conditions"></div>
+        </div>
+
+        <button class="filter-btn-apply" onclick="applyFilters();closeFilterPanel();" data-i18n="common.showResults"></button>
+        <button class="filter-btn-reset" onclick="resetFilters()" data-i18n="common.reset"></button>
+      </aside>
+
+      <!-- RESULTS -->
+      <div>
+        <div class="active-chips" id="active-chips"></div>
+        <div class="toolbar">
+          <p id="result-count" style="color:#64748b;font-size:14px;"></p>
+          <div style="display:flex;gap:10px;align-items:center;">
+            <select id="sort" class="sort-select" onchange="applyFilters()" data-i18n-attr="aria-label:common.sort;title:common.sort"></select>
+            <div class="view-toggle">
+              <button id="vg-grid" class="active" onclick="setView('grid')" data-i18n-attr="title:category.viewGrid;aria-label:category.viewGrid">▦</button>
+              <button id="vg-list" onclick="setView('list')" data-i18n-attr="title:category.viewList;aria-label:category.viewList"><span class="ico" data-icon="menu"></span></button>
+            </div>
+          </div>
+        </div>
+
+        <div id="grid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px;"></div>
+        <div id="grid-list" style="display:none;flex-direction:column;gap:12px;"></div>
+
+        <div id="empty" class="hidden" style="text-align:center;padding:80px 0;">
+          <div style="width:80px;height:80px;border-radius:50%;background:#f1f5f9;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:32px;" aria-hidden="true"><span class="ico" data-icon="search"></span></div>
+          <h3 style="font-size:18px;font-weight:600;color:#334155;" data-i18n="category.emptyTitle"></h3>
+          <p style="color:#64748b;margin-top:8px;" data-i18n="category.emptyText"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;">
+      <div><div class="logo" style="color:white;margin-bottom:16px;"><span class="logo-word">elon<span style="color:#FFB020">.tj</span></span></div><p style="font-size:14px;line-height:1.6;" data-i18n="footer.about"></p></div>
+      <div><h3 data-i18n="footer.categories"></h3><div class="footer-cats" id="footer-cats"></div></div>
+      <div><h3 data-i18n="footer.info"></h3><ul><li><a href="#" data-i18n="footer.aboutUs"></a></li><li><a href="#" data-i18n="footer.rules"></a></li><li><a href="#" data-i18n="footer.help"></a></li></ul></div>
+      <div><h3 data-i18n="footer.contact"></h3><ul><li><span class="ico" data-icon="phone"></span> +992 44 600 00 00</li><li><span class="ico" data-icon="mail"></span> info@elon.tj</li><li><span aria-hidden="true"><span class="ico" data-icon="map-pin"></span></span> <span data-i18n="city.dushanbe"></span></li></ul></div>
+    </div>
+    <div class="footer-bottom" data-i18n="footer.rights"></div>
+  </div>
+</footer>
+
+<!-- Луғатҳо (fallback): сайт ҳатто аз file:// бе сервер кор мекунад -->
+<script src="locales/bundles.js"></script>
+<script src="icons.js"></script>
+  <script src="i18n.js"></script>
+<script src="category-engine.js"></script>
+<script src="data.js"></script>
+<script src="storage.js"></script>
+<script src="layout.js"></script>
+<script>
+const $ = id => document.getElementById(id);
+const params = new URLSearchParams(location.search);
+const slug = params.get('slug') || 'transport';
+const catEngine = getCatEngine(slug) || getCategoryTree()[0];   // маълумоти пурра (навъҳо, брендҳо)
+const catSlug = catEngine.slug;
+
+/* Ҳолати корбар — ҳамааш бо КОДҲО (slug-ҳо), на бо матн */
+const state = { subs:[], brands:[], conds:[], city:'', min:'', max:'', sort:'newest', view:'grid' };
+let filtered = [];
+
+const SORTS = [
+  { code:'newest',    icon:'clock', key:'common.sortNewest' },
+  { code:'cheapest',  icon:'banknote', key:'common.sortCheapest' },
+  { code:'expensive', icon:'gem', key:'common.sortExpensive' },
+  { code:'popular',   icon:'flame', key:'common.sortPopular' },
+];
+
+/* ---------------- Ҳолатро аз DOM мехонем ---------------- */
+function readState(){
+  state.subs   = [...document.querySelectorAll('.f-subcat:checked')].map(e => e.value);
+  state.brands = [...document.querySelectorAll('.f-brand:checked')].map(e => e.value);
+  state.conds  = [...document.querySelectorAll('.f-condition:checked')].map(e => e.value);
+  state.city   = $('f-city').value;
+  state.min    = $('f-min').value;
+  state.max    = $('f-max').value;
+  state.sort   = $('sort').value || 'newest';
+}
+
+/* ---------------- Сарлавҳаи категория ---------------- */
+function renderHeader(){
+  const name = t(catEngine.nameKey);
+  $('crumb-cat').textContent = name;
+  $('cat-title').textContent = name;
+  const icon = $('cat-hero-icon');
+  icon.innerHTML = iconHTML(catIcons[catSlug] || 'wrench', 'ico-hero');
+  icon.style.background = (catColors[catSlug] || {}).bg || '#f1f5f9';
+  icon.style.color = (catColors[catSlug] || {}).color || '#64748b';
+}
+
+/* ---------------- Филтрҳо ---------------- */
+function renderSubcatFilter(){
+  $('f-subcats').innerHTML = catEngine.types.map(ty => `
+    <label class="filter-check"><input type="checkbox" value="${ty.slug}" class="f-subcat"
+      ${state.subs.includes(ty.slug) ? 'checked' : ''}
+      onchange="onSubcatChange()"> ${t(ty.nameKey)}</label>`).join('');
+}
+
+function renderCondFilter(){
+  $('f-conditions').innerHTML = conditionOptions().map(o => `
+    <label class="filter-check"><input type="checkbox" value="${o.code}" class="f-condition"
+      ${state.conds.includes(o.code) ? 'checked' : ''}
+      onchange="applyFilters()"> ${o.label}</label>`).join('');
+}
+
+function renderCityFilter(){
+  $('f-city').innerHTML = `<option value="">${t('category.allCities')}</option>` +
+    cityOptions().map(o => `<option value="${o.code}"${o.code === state.city ? ' selected' : ''}>${o.label}</option>`).join('');
+  $('f-city').value = state.city || '';
+}
+
+function renderSortSelect(){
+  $('sort').innerHTML = SORTS.map(s =>
+    `<option value="${s.code}"${s.code === state.sort ? ' selected' : ''}>${t(s.key)}</option>`).join('');
+  $('sort').value = state.sort;
+}
+
+/* Брендҳои навъҳои интихобшуда (ident = brandId, намоиш = brandName) */
+function collectBrands(){
+  const relevant = state.subs.length
+    ? catEngine.types.filter(ty => state.subs.includes(ty.slug))
+    : catEngine.types;
+  const map = new Map();
+  relevant.forEach(ty => (ty.brands || []).forEach(b => map.set(brandId(b), brandName(b))));
+  return [...map.entries()].map(([code, label]) => ({ code, label }));
+}
+
+function renderBrandFilter(){
+  const brands = collectBrands();
+  const grp = $('brand-filter-group');
+  if (!brands.length){ grp.style.display = 'none'; $('f-brands').innerHTML = ''; return; }
+  grp.style.display = 'block';
+  $('f-brands').innerHTML = brands.map(b => `
+    <label class="filter-check"><input type="checkbox" value="${b.code}" class="f-brand"
+      ${state.brands.includes(b.code) ? 'checked' : ''}
+      onchange="applyFilters()"> ${b.label}</label>`).join('');
+}
+
+function onSubcatChange(){
+  readState();
+  renderBrandFilter();
+  renderSubcatGrid();
+  applyFilters();
+}
+
+/* ---------------- Панели зердастаҳо бо шумора ---------------- */
+function renderSubcatGrid(){
+  const all = allListings().filter(l => l.category === catSlug);
+  $('subcat-count-grid').innerHTML = catEngine.types.map(ty => {
+    const n = all.filter(l => l.type === ty.slug).length;
+    const active = state.subs.includes(ty.slug) ? ' active' : '';
+    return `<div class="subcat-count-item${active}" onclick="toggleSubcatFromGrid('${ty.slug}')">${t(ty.nameKey)} <span class="n">${formatNumber(n)}</span></div>`;
+  }).join('');
+}
+function toggleSubcatFromGrid(typeSlug){
+  const cb = [...document.querySelectorAll('.f-subcat')].find(e => e.value === typeSlug);
+  if (cb){ cb.checked = !cb.checked; onSubcatChange(); }
+}
+
+/* ---------------- Навори мобилӣ ---------------- */
+function renderMobileBar(){
+  $('mobile-filter-bar').innerHTML =
+    `<div class="mf-chip" onclick="openFilterPanel()">${iconHTML('sliders-horizontal')} ${t('common.filters')}</div>` +
+    ['cheapest','newest','popular'].map(code => {
+      const s = SORTS.find(x => x.code === code);
+      const active = (state.sort === code && code !== 'newest') ? ' active' : '';
+      return `<div class="mf-chip${active}" id="mf-sort-${code}" onclick="quickSort('${code}')">${iconHTML(s.icon)} ${t(s.key)}</div>`;
+    }).join('');
+}
+
+function openFilterPanel(){
+  $('filter-box').classList.add('mobile-open');
+  $('filter-scrim').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeFilterPanel(){
+  $('filter-box').classList.remove('mobile-open');
+  $('filter-scrim').classList.remove('active');
+  document.body.style.overflow = '';
+}
+function quickSort(code){
+  state.sort = (state.sort === code && code !== 'newest') ? 'newest' : code;
+  renderSortSelect();
+  applyFilters();
+}
+
+function setView(v){
+  state.view = v;
+  $('vg-grid').classList.toggle('active', v === 'grid');
+  $('vg-list').classList.toggle('active', v === 'list');
+  $('grid').style.display = v === 'grid' ? 'grid' : 'none';
+  $('grid-list').style.display = v === 'list' ? 'flex' : 'none';
+}
+
+/* ---------------- Сатр (намуди рӯйхат) ---------------- */
+function renderRow(l){
+  const bg = imgColors[parseInt(String(l.id).replace(/\D/g,'') || '0') % imgColors.length];
+  return `<a href="listing.html?id=${l.id}" class="listing-row">
+    <div class="row-img" style="background:${bg};" aria-hidden="true">${iconHTML(catIcons[l.category] || 'package', 'ico-ph')}</div>
+    <div class="row-body">
+      <div class="row-title">${displayTitle(l)}</div>
+      <div class="row-price">${formatPrice(l.price, l.currency)}</div>
+      <div class="row-meta"><span><span class="ico" data-icon="map-pin"></span> ${listingLocation(l)}</span><span><span class="ico" data-icon="clock"></span> ${formatDate(l.createdAt)}</span><span title="${t('common.views')}"><span class="ico" data-icon="eye"></span> ${formatNumber(l.views || 0)}</span></div>
+    </div>
+  </a>`;
+}
+
+/* ---------------- Чипҳои филтрҳои фаъол ---------------- */
+function renderActiveChips(){
+  const chips = [];
+  state.subs.forEach(code => {
+    const ty = catEngine.types.find(x => x.slug === code);
+    chips.push({ type:'subcat', code, label: ty ? t(ty.nameKey) : code });
+  });
+  state.brands.forEach(code => chips.push({ type:'brand', code, label: brandLabel(code) }));
+  state.conds.forEach(code => chips.push({ type:'condition', code, label: condLabel(code) }));
+  if (state.city) chips.push({ type:'city', code: state.city, label: cityLabel(state.city) });
+  if (state.min) chips.push({ type:'min', code:'', label: t('common.fromValue', { v: formatNumber(state.min) }) });
+  if (state.max) chips.push({ type:'max', code:'', label: t('common.toValue', { v: formatNumber(state.max) }) });
+
+  $('active-chips').innerHTML = chips.map(c => `
+    <span class="chip">${c.label} <button onclick="removeChip('${c.type}','${c.code}')" title="${t('common.remove')}" aria-label="${t('common.remove')}"><span class="ico" data-icon="x"></span></button></span>
+  `).join('');
+}
+
+function removeChip(type, code){
+  if (type === 'subcat'){
+    document.querySelectorAll('.f-subcat').forEach(el => { if (el.value === code) el.checked = false; });
+    readState();
+    renderBrandFilter();
+    renderSubcatGrid();
+  } else if (type === 'brand' || type === 'condition'){
+    document.querySelectorAll('.f-' + type).forEach(el => { if (el.value === code) el.checked = false; });
+  } else if (type === 'city'){ $('f-city').value = ''; }
+  else if (type === 'min'){ $('f-min').value = ''; }
+  else if (type === 'max'){ $('f-max').value = ''; }
+  applyFilters();
+}
+
+/* ---------------- Ёрирасонҳо ---------------- */
+function listingCityCode(l){
+  if (l.cityCode) return l.cityCode;
+  if (l.locationKey){
+    const found = cityCodes.find(c => l.locationKey.indexOf(c) !== -1);
+    if (found) return found;
+  }
+  return null;
+}
+function matchCity(l, code){
+  if (!code) return true;
+  if (listingCityCode(l) === code) return true;
+  const label = cityLabel(code).toLowerCase();
+  return label ? listingLocation(l).toLowerCase().indexOf(label) !== -1 : false;
+}
+
+/* ---------------- Филтр + сортировка ---------------- */
+function filterAndSort(){
+  const min = parseFloat(state.min) || 0;
+  const max = parseFloat(state.max) || Infinity;
+
+  filtered = allListings().filter(l => {
+    if (l.category !== catSlug) return false;
+    if (state.subs.length && !state.subs.includes(l.type)) return false;
+    if (state.brands.length && !state.brands.includes(l.brand)) return false;
+    if (state.conds.length && !state.conds.includes(l.condition)) return false;
+    if (!matchCity(l, state.city)) return false;
+    if (l.price > 0 && (l.price < min || l.price > max)) return false;
+    return true;
+  });
+
+  if (state.sort === 'cheapest') filtered.sort((a,b) => (a.price || Infinity) - (b.price || Infinity));
+  else if (state.sort === 'expensive') filtered.sort((a,b) => (b.price || 0) - (a.price || 0));
+  else if (state.sort === 'popular') filtered.sort((a,b) => (b.views || 0) - (a.views || 0));
+  else filtered.sort((a,b) => new Date(b.createdAt) - new Date(a.createdAt));
+}
+
+function renderResults(){
+  const n = formatNumber(filtered.length);
+  $('cat-count').textContent = t('category.count', { n });
+  $('result-count').textContent = t('search.found', { n });
+  renderActiveChips();
+
+  if (!filtered.length){
+    $('grid').innerHTML = '';
+    $('grid-list').innerHTML = '';
+    $('empty').classList.remove('hidden');
+  } else {
+    $('empty').classList.add('hidden');
+    $('grid').innerHTML = filtered.map(renderCard).join('');
+    $('grid-list').innerHTML = filtered.map(renderRow).join('');
+  }
+}
+
+function applyFilters(){
+  readState();
+  filterAndSort();
+  renderResults();
+  renderMobileBar();
+}
+
+function resetFilters(){
+  state.subs = []; state.brands = []; state.conds = [];
+  state.city = ''; state.min = ''; state.max = ''; state.sort = 'newest';
+  renderPage();
+}
+
+/* ---------------- Render-и умумӣ ---------------- */
+function renderPage(){
+  renderHeader();
+  renderSubcatFilter();
+  renderBrandFilter();
+  renderCondFilter();
+  renderCityFilter();
+  renderSortSelect();
+  renderSubcatGrid();
+  renderMobileBar();
+  $('f-min').value = state.min;
+  $('f-max').value = state.max;
+  setView(state.view);
+  filterAndSort();
+  renderResults();
+}
+
+/* Дастгирии линки амиқ: category.html?slug=kompyuterho&subcat=laptop&brand=Lenovo */
+function initPage(){
+  const urlSubcat = params.get('subcat');
+  const urlBrand = params.get('brand');
+  if (urlSubcat && catEngine.types.some(ty => ty.slug === urlSubcat)) state.subs = [urlSubcat];
+  if (urlBrand) state.brands = [urlBrand];
+  renderPage();
+}
+
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initPage);
+else initPage();
+
+/* Иваз шудани забон — фавран, бо нигоҳ доштани филтрҳо */
+I18N.onChange(() => { readState(); renderPage(); });
+</script>
+</body></html>

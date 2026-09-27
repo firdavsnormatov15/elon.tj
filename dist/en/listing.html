@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" data-i18n-attr="content:meta.listing.desc">
+<meta property="og:title" data-i18n-attr="content:meta.listing.ogTitle">
+<meta property="og:description" data-i18n-attr="content:meta.listing.ogDesc">
+<meta property="og:type" content="article">
+<title data-i18n="meta.listing.title"></title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="flex flex-col hide-tabbar" style="min-height:100vh;">
+
+<header class="header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo"><span class="logo-word"><span style="color:#4A6CF7">e</span><span style="color:#FF5C39">l</span><span style="color:#FFB020">o</span><span style="color:#4A6CF7">n</span><span style="color:#22A559">.</span><span style="color:#1a1a1a">tj</span></span></a>
+    <div class="search-box"><span class="search-icon"><span class="ico" data-icon="search"></span></span><form action="search.html" style="width:100%;"><input type="text" name="q" data-i18n-attr="placeholder:ph.search;aria-label:ph.search"><button type="submit" class="search-btn" data-i18n="common.find"></button></form></div>
+    <nav class="nav-btns" data-i18n-attr="aria-label:nav.mainNav">
+      <a href="messages.html" class="nav-btn" data-i18n-attr="title:nav.messages;aria-label:nav.messages"><span class="ico" data-icon="message-circle"></span></a>
+      <a href="favorites.html" class="nav-btn" data-i18n-attr="title:nav.favorites;aria-label:nav.favorites"><span class="ico" data-icon="heart"></span></a>
+      <a href="profile.html" class="nav-btn" data-i18n-attr="title:nav.profile;aria-label:nav.profile"><span class="ico" data-icon="user"></span></a>
+      <div data-lang-switcher></div>
+      <a href="post.html" class="btn-primary" data-i18n="common.newListing"></a>
+      <button class="mobile-menu-btn" onclick="toggleMenu()" data-i18n-attr="title:nav.menu;aria-label:nav.menu"><span class="ico" data-icon="menu"></span></button>
+    </nav>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-header">
+    <a href="index.html" class="logo"><span class="logo-word"><span style="color:#4A6CF7">e</span><span style="color:#FF5C39">l</span><span style="color:#FFB020">o</span><span style="color:#4A6CF7">n</span><span style="color:#22A559">.</span><span style="color:#1a1a1a">tj</span></span></a>
+    <button class="mobile-menu-close" onclick="toggleMenu()" data-i18n-attr="title:common.close;aria-label:common.close"><span class="ico" data-icon="x"></span></button>
+  </div>
+  <div data-lang-switcher></div>
+  <ul class="mobile-menu-list">
+    <li><a href="index.html"><span class="menu-icon" style="background:#dbeafe;"><span class="ico" data-icon="house"></span></span> <span data-i18n="menu.home"></span></a></li>
+    <li><a href="search.html"><span class="menu-icon" style="background:#d1fae5;"><span class="ico" data-icon="search"></span></span> <span data-i18n="menu.search"></span></a></li>
+    <li><a href="post.html"><span class="menu-icon" style="background:#ede9fe;"><span class="ico" data-icon="plus"></span></span> <span data-i18n="menu.post"></span></a></li>
+    <li><a href="messages.html"><span class="menu-icon" style="background:#fef3c7;"><span class="ico" data-icon="message-circle"></span></span> <span data-i18n="menu.messages"></span></a></li>
+    <li><a href="favorites.html"><span class="menu-icon" style="background:#ffe4e6;"><span class="ico" data-icon="heart"></span></span> <span data-i18n="menu.favorites"></span></a></li>
+    <li><a href="profile.html"><span class="menu-icon" style="background:#dcfce7;"><span class="ico" data-icon="user"></span></span> <span data-i18n="menu.profile"></span></a></li>
+  </ul>
+  <div style="margin-top:24px;padding-top:24px;border-top:1px solid #e2e8f0;">
+    <p style="font-size:12px;font-weight:600;color:#94a3b8;margin-bottom:12px;text-transform:uppercase;letter-spacing:0.5px;" data-i18n="menu.categories"></p>
+    <div class="mobile-menu-cats" id="mobile-cats"></div>
+  </div>
+</div>
+
+<main style="flex:1;">
+  <div class="bg-slate-50 py-6">
+    <div class="container">
+      <nav class="breadcrumb" data-i18n-attr="aria-label:nav.breadcrumb">
+        <a href="index.html" data-i18n="menu.home"></a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="#" id="crumb-cat"></a>
+        <span class="breadcrumb-sep">/</span>
+        <span id="crumb-title"></span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="container py-6" id="listing-wrap">
+    <a href="javascript:history.back()" style="display:inline-flex;align-items:center;gap:8px;color:#64748b;margin-bottom:24px;"><span aria-hidden="true"><span class="ico" data-icon="arrow-left"></span></span> <span data-i18n="common.back"></span></a>
+    <div class="detail-grid">
+      <div style="display:flex;flex-direction:column;gap:24px;">
+
+        <div>
+          <div class="gallery-main" id="l-img" style="background:#dbeafe;">
+            <span id="l-img-icon"><span class="ico" data-icon="package"></span></span>
+            <button class="gallery-fav" id="fav-btn-detail" data-i18n-attr="title:common.favorite;aria-label:common.favorite"><span class="ico" data-icon="heart"></span></button>
+          </div>
+          <div class="gallery-thumbs" id="gallery-thumbs"></div>
+        </div>
+
+        <div class="detail-box">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:12px;">
+            <h1 id="l-title" style="font-size:22px;font-weight:800;color:#0f172a;line-height:1.3;"></h1>
+            <div style="display:flex;gap:8px;flex-shrink:0;">
+              <button id="fav-btn-2" data-i18n-attr="title:common.favorite;aria-label:common.favorite" style="padding:8px;border-radius:10px;background:#f8fafc;color:#64748b;border:none;cursor:pointer;font-size:16px;"><span class="ico" data-icon="heart"></span></button>
+              <button onclick="shareListing()" data-i18n-attr="title:listing.share;aria-label:listing.share" style="padding:8px;border-radius:10px;background:#f8fafc;color:#64748b;border:none;cursor:pointer;"><span class="ico" data-icon="share-2"></span></button>
+            </div>
+          </div>
+          <p id="l-price" style="font-size:28px;font-weight:800;color:var(--brand);margin-bottom:16px;"></p>
+          <div style="display:flex;flex-wrap:wrap;gap:12px;font-size:14px;color:#64748b;margin-bottom:20px;">
+            <span><span aria-hidden="true"><span class="ico" data-icon="map-pin"></span></span> <span id="l-loc"></span></span>
+            <span><span aria-hidden="true"><span class="ico" data-icon="clock"></span></span> <span id="l-date"></span></span>
+            <span><span aria-hidden="true"><span class="ico" data-icon="eye"></span></span> <span id="l-views"></span></span>
+            <span id="l-cond" style="padding:4px 10px;background:#f1f5f9;border-radius:20px;font-size:12px;font-weight:600;"></span>
+          </div>
+          <div style="margin-bottom:20px;">
+            <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;" data-i18n="listing.features"></h3>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;" id="attrs-grid"></div>
+          </div>
+          <div style="margin-top:20px;padding-top:20px;border-top:1px solid #e2e8f0;">
+            <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;" data-i18n="listing.description"></h3>
+            <p id="l-desc" style="color:#475569;line-height:1.7;white-space:pre-line;"></p>
+          </div>
+        </div>
+
+        <div id="related-wrap" style="display:none;">
+          <h3 style="font-size:18px;font-weight:700;margin-bottom:16px;" data-i18n="listing.related"></h3>
+          <div id="related-grid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;"></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="detail-box" style="position:sticky;top:80px;">
+          <p style="font-size:14px;color:#64748b;margin-bottom:4px;" data-i18n="listing.price"></p>
+          <p id="l-price-2" style="font-size:32px;font-weight:800;color:var(--brand);margin-bottom:24px;"></p>
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <a id="l-call" href="#" class="btn-primary" style="text-align:center;"><span aria-hidden="true"><span class="ico" data-icon="phone"></span></span> <span data-i18n="listing.call"></span></a>
+            <a href="#" id="l-message-btn" class="btn-outline" style="text-align:center;"><span aria-hidden="true"><span class="ico" data-icon="message-circle"></span></span> <span data-i18n="listing.message"></span></a>
+          </div>
+          <div style="margin-top:24px;padding-top:24px;border-top:1px solid #e2e8f0;">
+            <div style="display:flex;align-items:center;gap:12px;">
+              <a id="a-link" href="profile.html" style="display:flex;align-items:center;gap:12px;flex:1;">
+                <div style="width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--brand),var(--accent));display:flex;align-items:center;justify-content:center;color:white;font-weight:800;flex-shrink:0;" id="a-avatar"></div>
+                <div>
+                  <p id="a-name" style="font-weight:700;color:#0f172a;"></p>
+                  <div style="display:flex;align-items:center;gap:4px;font-size:14px;color:#64748b;">
+                    <span aria-hidden="true"><span class="ico" data-icon="star"></span></span><span id="a-rate"></span><span aria-hidden="true">•</span><span id="a-count"></span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div style="margin-top:16px;padding:12px;background:#f0fdf4;border-radius:10px;font-size:12px;color:#166534;display:flex;gap:8px;align-items:flex-start;">
+            <span aria-hidden="true"><span class="ico" data-icon="shield-check"></span></span><span data-i18n="listing.safety"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="not-found" style="display:none;text-align:center;padding:100px 20px;">
+    <div style="font-size:56px;margin-bottom:16px;" aria-hidden="true"><span class="ico" data-icon="search"></span></div>
+    <h2 style="font-size:20px;font-weight:700;color:#334155;" data-i18n="listing.notFound"></h2>
+    <p style="color:#64748b;margin-top:8px;margin-bottom:24px;" data-i18n="listing.notFoundHint"></p>
+    <a href="index.html" class="btn-primary" data-i18n="listing.toHome"></a>
+  </div>
+
+  <div class="toast" id="toast"></div>
+</main>
+
+<!-- Панели тамос — мобилӣ (мисли сомон.тҷ), ба ҷои mobile-tabbar -->
+<div class="mobile-contact-bar" id="mobile-contact-bar">
+  <a id="mc-call" href="#" class="mc-btn mc-call"><span aria-hidden="true"><span class="ico" data-icon="phone"></span></span> <span data-i18n="listing.call"></span></a>
+  <a id="mc-msg" href="#" class="mc-btn mc-msg"><span aria-hidden="true"><span class="ico" data-icon="message-circle"></span></span> <span data-i18n="listing.messageShort"></span></a>
+  <button class="mc-fav" id="mc-fav" data-i18n-attr="title:common.favorite;aria-label:common.favorite"><span class="ico" data-icon="heart"></span></button>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;">
+      <div><div class="logo" style="color:white;margin-bottom:16px;"><span class="logo-word">elon<span style="color:#FFB020">.tj</span></span></div><p style="font-size:14px;line-height:1.6;" data-i18n="footer.about"></p></div>
+      <div><h3 data-i18n="footer.categories"></h3><div class="footer-cats" id="footer-cats"></div></div>
+      <div><h3 data-i18n="footer.info"></h3><ul><li><a href="#" data-i18n="footer.aboutUs"></a></li><li><a href="#" data-i18n="footer.rules"></a></li><li><a href="#" data-i18n="footer.help"></a></li></ul></div>
+      <div><h3 data-i18n="footer.contact"></h3><ul><li><span aria-hidden="true"><span class="ico" data-icon="phone"></span></span> +992 44 600 00 00</li><li><span aria-hidden="true"><span class="ico" data-icon="mail"></span></span> info@elon.tj</li><li><span aria-hidden="true"><span class="ico" data-icon="map-pin"></span></span> <span data-i18n="city.dushanbe"></span></li></ul></div>
+    </div>
+    <div class="footer-bottom" data-i18n="footer.rights"></div>
+  </div>
+</footer>
+
+<!-- Луғатҳо (fallback): сайт ҳатто аз file:// бе сервер кор мекунад -->
+<script src="locales/bundles.js"></script>
+<script src="icons.js"></script>
+  <script src="i18n.js"></script>
+<script src="category-engine.js"></script>
+<script src="data.js"></script>
+<script src="storage.js"></script>
+<script src="layout.js"></script>
+<script>
+/* ---------------- Ҳолати саҳифа (ҳангоми иваз шудани забон нигоҳ дошта мешавад) ---------------- */
+const params = new URLSearchParams(location.search);
+const listingId = params.get('id') || '1';
+const l = findListing(listingId);
+let activeImgIdx = 0;   // сурати интихобшуда дар галерея
+
+function showToast(key, type, vars){
+  const el = document.getElementById('toast');
+  el.dataset.i18n = key;
+  el.dataset.i18nArgs = vars ? JSON.stringify(vars) : '';
+  el.textContent = t(key, vars);
+  el.className = 'toast ' + (type || '');
+  setTimeout(() => el.classList.add('show'), 10);
+  setTimeout(() => el.classList.remove('show'), 2500);
+}
+/* Агар ҳангоми намоён будани toast забон иваз шавад — фавран тарҷума мешавад */
+if (window.I18N) I18N.onChange(() => {
+  const el = document.getElementById('toast');
+  if (el && el.dataset.i18n && el.classList.contains('show')) {
+    el.textContent = t(el.dataset.i18n, el.dataset.i18nArgs ? JSON.parse(el.dataset.i18nArgs) : undefined);
+  }
+});
+
+function shareListing(){
+  const url = location.href;
+  if (navigator.share) {
+    navigator.share({ title: displayTitle(l), url }).catch(()=>{});
+  } else {
+    navigator.clipboard?.writeText(url);
+    showToast('ok.linkCopied', 'success');
+  }
+}
+
+function paintFavButtons(){
+  const active = isFavorite(l.id);
+  ['fav-btn-detail','fav-btn-2','mc-fav'].forEach(id => {
+    const b = document.getElementById(id);
+    if (!b) return;
+    b.innerHTML = iconHTML(active ? 'heart-fill' : 'heart');
+    b.classList.toggle('active', active);
+    if (id === 'fav-btn-2') b.style.color = active ? '#ef4444' : '#64748b';
+  });
+}
+
+function onFavToggle(){
+  toggleFavorite(l.id);
+  paintFavButtons();
+  showToast(isFavorite(l.id) ? 'ok.favAdded' : 'ok.favRemoved');
+}
+
+/* ---------------- Галерея ---------------- */
+function renderGallery(){
+  const main = document.getElementById('l-img');
+  const thumbs = document.getElementById('gallery-thumbs');
+  if (l.images && l.images.length) {
+    const url = l.images[activeImgIdx] || l.images[0];
+    main.style.background = '#f1f5f9';
+    main.innerHTML = `<img src="${url}" style="width:100%;height:100%;object-fit:cover;" alt="${t('listing.imageAlt')}">
+      <button class="gallery-fav" id="fav-btn-detail" title="${t('common.favorite')}" aria-label="${t('common.favorite')}"><span class="ico" data-icon="heart"></span></button>`;
+    thumbs.innerHTML = l.images.map((u,i) => `
+      <button class="thumb ${i===activeImgIdx?'active':''}" onclick="selectThumbImg(${i})" title="${t('listing.imageAlt')}" aria-label="${t('listing.imageAlt')}" style="padding:0;overflow:hidden;"><img src="${u}" style="width:100%;height:100%;object-fit:cover;" alt=""></button>
+    `).join('');
+  } else {
+    const galleryBg = imgColors[parseInt(String(l.id).replace(/\D/g,'')||'0') % imgColors.length];
+    main.style.background = galleryBg;
+    main.innerHTML = `<span id="l-img-icon" aria-hidden="true">${iconHTML(catIcons[l.category] || 'package', 'ico-ph')}</span>
+      <button class="gallery-fav" id="fav-btn-detail" title="${t('common.favorite')}" aria-label="${t('common.favorite')}"><span class="ico" data-icon="heart"></span></button>`;
+    thumbs.innerHTML = `<button class="thumb active" aria-hidden="true" style="background:${galleryBg}">${iconHTML(catIcons[l.category]||'package', 'ico-ph')}</button>`;
+  }
+  document.getElementById('fav-btn-detail').onclick = onFavToggle;
+}
+function selectThumbImg(i){
+  activeImgIdx = i;
+  renderGallery();
+  paintFavButtons();
+}
+
+/* ---------------- Хусусиятҳо ---------------- */
+function renderAttrs(){
+  const rows = [
+    [t('listing.fieldCategory'), listingSubcategory(l) || getCategoryName(l.category) || '—'],
+    [t('listing.fieldCondition'), listingCondition(l) || '—'],
+    [t('listing.fieldCity'), listingLocation(l) || '—'],
+    [t('listing.fieldId'), '#' + l.id],
+  ];
+  if (l.brand) rows.push([t('listing.fieldBrand'), brandLabel(l.brand)]);
+  if (l.model) rows.push([t('listing.fieldModel'), l.model]);
+  if (l.attrs) {
+    const typeObj = getTypeEngine(l.category, l.type);
+    Object.keys(l.attrs).forEach(key => {
+      const val = l.attrs[key];
+      if (!val) return;
+      const attrDef = (typeObj && typeObj.attributes) ? typeObj.attributes.find(a => a.key === key) : null;
+      rows.push([attrDef ? attrLabel(attrDef) : key, optLabel(key, val)]);
+    });
+  }
+  document.getElementById('attrs-grid').innerHTML = rows.map(([label,val]) =>
+    `<div class="info-row"><span class="info-label">${label}</span><span class="info-value">${val}</span></div>`
+  ).join('');
+}
+
+/* ---------------- Render-и асосӣ ---------------- */
+function renderPage(){
+  if (!l) {
+    document.getElementById('listing-wrap').style.display = 'none';
+    document.getElementById('mobile-contact-bar').style.display = 'none';
+    document.getElementById('not-found').style.display = 'block';
+    document.title = t('meta.listing.title');
+    return;
+  }
+  const heading = displayTitle(l);
+  document.getElementById('l-title').textContent = heading;
+  document.getElementById('crumb-title').textContent = heading;
+  document.title = t('meta.listing.titleWith', { title: heading });
+
+  const crumbCat = document.getElementById('crumb-cat');
+  crumbCat.textContent = getCategoryName(l.category);
+  crumbCat.href = 'category.html?slug=' + l.category;
+
+  document.getElementById('l-loc').textContent = listingLocation(l);
+  document.getElementById('l-date').textContent = formatDate(l.createdAt);
+  document.getElementById('l-views').textContent = t('listing.viewsN', { n: formatNumber(l.views || 0) });
+  document.getElementById('l-cond').textContent = listingCondition(l);
+  document.getElementById('l-desc').textContent = listingDesc(l);
+  document.getElementById('l-price').textContent = formatPrice(l.price, l.currency);
+  document.getElementById('l-price-2').textContent = formatPrice(l.price, l.currency);
+  document.getElementById('l-call').href = 'tel:' + (l.phone || '');
+  document.getElementById('mc-call').href = 'tel:' + (l.phone || '');
+
+  renderAttrs();
+
+  const author = l.author || {};
+  const aName = userName(author);
+  document.getElementById('a-avatar').textContent = (aName || '?').charAt(0);
+  document.getElementById('a-name').textContent = aName;
+  document.getElementById('a-rate').textContent = formatNumber(author.rating || 0);
+  document.getElementById('a-count').textContent = t('listing.adsN', { n: formatNumber(author.listingsCount || 0) });
+
+  const msgHref = `messages.html?seller=${encodeURIComponent(author.id || aName)}&name=${encodeURIComponent(aName)}&listing=${encodeURIComponent(heading)}`;
+  document.getElementById('l-message-btn').href = msgHref;
+  document.getElementById('mc-msg').href = msgHref;
+
+  renderGallery();
+  paintFavButtons();
+  document.getElementById('fav-btn-2').onclick = onFavToggle;
+  document.getElementById('mc-fav').onclick = onFavToggle;
+
+  const related = getRelatedListings(l, 4);
+  if (related.length) {
+    document.getElementById('related-wrap').style.display = 'block';
+    document.getElementById('related-grid').innerHTML = related.map(renderCard).join('');
+  } else {
+    document.getElementById('related-wrap').style.display = 'none';
+  }
+}
+
+if (l) addRecentlyViewed(l.id);
+renderPage();
+document.addEventListener('DOMContentLoaded', renderPage);
+I18N.onChange(renderPage);
+</script>
+</body></html>

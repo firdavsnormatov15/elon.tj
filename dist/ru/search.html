@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" data-i18n-attr="content:meta.search.desc">
+<meta property="og:title" data-i18n-attr="content:meta.search.ogTitle">
+<meta property="og:description" data-i18n-attr="content:meta.search.ogDesc">
+<title data-i18n="meta.search.title"></title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="flex flex-col" style="min-height:100vh;">
+
+<header class="header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo" data-i18n-attr="aria-label:nav.home"><span class="logo-word"><span style="color:#4A6CF7">e</span><span style="color:#FF5C39">l</span><span style="color:#FFB020">o</span><span style="color:#4A6CF7">n</span><span style="color:#22A559">.</span><span style="color:#1a1a1a">tj</span></span></a>
+    <div class="search-box">
+      <span class="search-icon" aria-hidden="true"><span class="ico" data-icon="search"></span></span>
+      <form action="search.html" class="w-full"><input type="text" name="q" data-i18n-attr="placeholder:ph.search;aria-label:ph.search"><button type="submit" class="search-btn" data-i18n="common.find"></button></form>
+    </div>
+    <nav class="nav-btns" data-i18n-attr="aria-label:nav.mainNav">
+      <a href="messages.html" class="nav-btn" data-i18n-attr="title:nav.messages;aria-label:nav.messages"><span class="ico" data-icon="message-circle"></span></a>
+      <a href="favorites.html" class="nav-btn" data-i18n-attr="title:nav.favorites;aria-label:nav.favorites"><span class="ico" data-icon="heart"></span></a>
+      <a href="profile.html" class="nav-btn" data-i18n-attr="title:nav.profile;aria-label:nav.profile"><span class="ico" data-icon="user"></span></a>
+      <div data-lang-switcher></div>
+      <a href="post.html" class="btn-primary" data-i18n="common.newListing"></a>
+      <button class="mobile-menu-btn" onclick="toggleMenu()" data-i18n-attr="aria-label:nav.menu;title:nav.menu"><span class="ico" data-icon="menu"></span></button>
+    </nav>
+  </div>
+</header>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-header">
+    <a href="index.html" class="logo" data-i18n-attr="aria-label:nav.home"><span class="logo-word"><span style="color:#4A6CF7">e</span><span style="color:#FF5C39">l</span><span style="color:#FFB020">o</span><span style="color:#4A6CF7">n</span><span style="color:#22A559">.</span><span style="color:#1a1a1a">tj</span></span></a>
+    <button class="mobile-menu-close" onclick="toggleMenu()" data-i18n-attr="aria-label:common.close;title:common.close"><span class="ico" data-icon="x"></span></button>
+  </div>
+  <div data-lang-switcher></div>
+  <ul class="mobile-menu-list">
+    <li><a href="index.html"><span class="menu-icon" style="background:#dbeafe;" aria-hidden="true"><span class="ico" data-icon="house"></span></span> <span data-i18n="menu.home"></span></a></li>
+    <li><a href="search.html"><span class="menu-icon" style="background:#d1fae5;" aria-hidden="true"><span class="ico" data-icon="search"></span></span> <span data-i18n="menu.search"></span></a></li>
+    <li><a href="post.html"><span class="menu-icon" style="background:#ede9fe;" aria-hidden="true"><span class="ico" data-icon="plus"></span></span> <span data-i18n="menu.post"></span></a></li>
+    <li><a href="messages.html"><span class="menu-icon" style="background:#fef3c7;" aria-hidden="true"><span class="ico" data-icon="message-circle"></span></span> <span data-i18n="menu.messages"></span></a></li>
+    <li><a href="favorites.html"><span class="menu-icon" style="background:#ffe4e6;" aria-hidden="true"><span class="ico" data-icon="heart"></span></span> <span data-i18n="menu.favorites"></span></a></li>
+    <li><a href="profile.html"><span class="menu-icon" style="background:#dcfce7;" aria-hidden="true"><span class="ico" data-icon="user"></span></span> <span data-i18n="menu.profile"></span></a></li>
+  </ul>
+</div>
+
+<main style="flex:1;">
+  <div class="container py-6">
+    <nav class="breadcrumb" data-i18n-attr="aria-label:nav.breadcrumb">
+      <a href="index.html" data-i18n="nav.home"></a>
+      <span class="breadcrumb-sep" aria-hidden="true">/</span>
+      <span data-i18n="search.title"></span>
+    </nav>
+
+    <h1 style="font-size:28px;font-weight:800;color:#0f172a;margin-bottom:24px;"><span aria-hidden="true"><span class="ico" data-icon="search"></span></span> <span data-i18n="search.heading"></span></h1>
+
+    <!-- Search + Sort -->
+    <div style="display:flex;gap:12px;margin-bottom:24px;flex-wrap:wrap;">
+      <div style="flex:1;min-width:250px;position:relative;">
+        <span style="position:absolute;left:16px;top:50%;transform:translateY(-50%);opacity:0.5;" aria-hidden="true"><span class="ico" data-icon="search"></span></span>
+        <input type="text" id="sq" data-i18n-attr="placeholder:ph.searchQuery;aria-label:ph.searchQuery" style="width:100%;padding:14px 16px 14px 48px;border-radius:12px;border:1px solid #e2e8f0;background:#f8fafc;outline:none;font-size:14px;">
+      </div>
+      <select id="sort" onchange="applyFilters()" class="desktop-sort-select" data-i18n-attr="aria-label:common.sort;title:common.sort" style="padding:14px 16px;border-radius:12px;border:1px solid #e2e8f0;background:#f8fafc;font-size:14px;outline:none;cursor:pointer;"></select>
+    </div>
+
+    <!-- Категорияҳо бо шумора — мисли сомон.тҷ -->
+    <div class="subcat-count-grid" id="main-cat-count-grid"></div>
+
+    <!-- Панели чипҳо — мобилӣ (мисли сомон.тҷ) -->
+    <div class="mobile-filter-bar" id="mobile-filter-bar"></div>
+
+    <div class="filter-scrim" id="filter-scrim" onclick="closeFilterPanel()"></div>
+
+    <!-- Filters -->
+    <div id="filters-card" class="filter-box">
+      <div class="filter-box-head">
+        <h3 style="font-size:16px;font-weight:700;margin-bottom:0;"><span aria-hidden="true"><span class="ico" data-icon="sliders-horizontal"></span></span> <span data-i18n="common.filters"></span></h3>
+        <button class="filter-box-close" onclick="closeFilterPanel()" data-i18n-attr="aria-label:common.close;title:common.close"><span class="ico" data-icon="x"></span></button>
+      </div>
+      <div style="display:flex;justify-content:flex-end;margin-bottom:12px;">
+        <button onclick="resetFilters()" data-i18n="common.reset" style="background:none;border:none;color:#0F7A6B;font-size:14px;cursor:pointer;font-weight:500;"></button>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;">
+        <div>
+          <label class="form-label" for="f-cat" data-i18n="search.category"></label>
+          <select id="f-cat" onchange="updateSubFilter();applyFilters();" class="form-input"></select>
+        </div>
+        <div>
+          <label class="form-label" for="f-sub" data-i18n="search.subcategory"></label>
+          <select id="f-sub" onchange="applyFilters()" class="form-input"></select>
+        </div>
+        <div>
+          <label class="form-label" for="f-city" data-i18n="search.city"></label>
+          <select id="f-city" onchange="applyFilters()" class="form-input"></select>
+        </div>
+        <div>
+          <label class="form-label" for="f-condition" data-i18n="search.condition"></label>
+          <select id="f-condition" onchange="applyFilters()" class="form-input"></select>
+        </div>
+        <div>
+          <label class="form-label" for="f-min" data-i18n="search.priceFrom"></label>
+          <input type="number" id="f-min" placeholder="0" class="form-input" data-i18n-attr="aria-label:search.priceFrom">
+        </div>
+        <div>
+          <label class="form-label" for="f-max" data-i18n="search.priceTo"></label>
+          <input type="number" id="f-max" placeholder="∞" class="form-input" data-i18n-attr="aria-label:search.priceTo">
+        </div>
+      </div>
+      <button onclick="applyFilters();closeFilterPanel();" class="btn-primary" style="margin-top:16px;width:100%;border:none;cursor:pointer;padding:12px;"><span aria-hidden="true"><span class="ico" data-icon="search"></span></span> <span data-i18n="common.showResults"></span></button>
+    </div>
+
+    <!-- Results -->
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+      <p id="rc" style="color:#64748b;font-size:14px;"></p>
+    </div>
+
+    <div id="grid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:24px;"></div>
+
+    <!-- Empty state -->
+    <div id="empty" class="hidden" style="text-align:center;padding:80px 0;">
+      <div style="width:80px;height:80px;border-radius:50%;background:#f1f5f9;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:32px;" aria-hidden="true"><span class="ico" data-icon="search"></span></div>
+      <h3 style="font-size:18px;font-weight:600;color:#334155;" data-i18n="search.emptyTitle"></h3>
+      <p style="color:#64748b;margin-top:8px;" data-i18n="search.emptyText"></p>
+      <button onclick="resetFilters()" class="btn-primary" data-i18n="search.emptyReset" style="margin-top:16px;border:none;cursor:pointer;"></button>
+    </div>
+
+    <!-- Pagination -->
+    <div id="pagination" data-i18n-attr="aria-label:common.pagination" style="display:flex;justify-content:center;gap:8px;margin-top:32px;"></div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;">
+      <div><div class="logo" style="color:white;margin-bottom:16px;"><span class="logo-word">elon<span style="color:#FFB020">.tj</span></span></div><p style="font-size:14px;line-height:1.6;" data-i18n="footer.about"></p></div>
+      <div><h3 data-i18n="footer.categories"></h3><div class="footer-cats" id="footer-cats"></div></div>
+      <div><h3 data-i18n="footer.info"></h3><ul><li><a href="#" data-i18n="footer.aboutUs"></a></li><li><a href="#" data-i18n="footer.rules"></a></li><li><a href="#" data-i18n="footer.help"></a></li></ul></div>
+      <div><h3 data-i18n="footer.contact"></h3><ul><li><span class="ico" data-icon="phone"></span> +992 44 600 00 00</li><li><span class="ico" data-icon="mail"></span> info@elon.tj</li><li><span aria-hidden="true"><span class="ico" data-icon="map-pin"></span></span> <span data-i18n="city.dushanbe"></span></li></ul></div>
+    </div>
+    <div class="footer-bottom" data-i18n="footer.rights"></div>
+  </div>
+</footer>
+
+<!-- Луғатҳо (fallback): сайт ҳатто аз file:// бе сервер кор мекунад -->
+<script src="locales/bundles.js"></script>
+<script src="icons.js"></script>
+  <script src="i18n.js"></script>
+<script src="category-engine.js"></script>
+<script src="data.js"></script>
+<script src="storage.js"></script>
+<script src="layout.js"></script>
+<script>
+/* ---------------- Ҳолати саҳифа (state) ---------------- */
+const perPage = 12;
+const state = { q:'', cat:'', sub:'', city:'', cond:'', min:'', max:'', sort:'newest', page:1 };
+let filteredResults = [];
+
+const $ = id => document.getElementById(id);
+
+/* Ҳолати ҷориро аз DOM мехонем (то ҳангоми иваз шудани забон гум нашавад) */
+function readState(){
+  state.q    = $('sq').value.trim();
+  state.cat  = $('f-cat').value;
+  state.sub  = $('f-sub').value;
+  state.city = $('f-city').value;
+  state.cond = $('f-condition').value;
+  state.min  = $('f-min').value;
+  state.max  = $('f-max').value;
+  state.sort = $('sort').value || 'newest';
+}
+
+/* ---------------- Пур кардани select-ҳо (value = КОД) ---------------- */
+const SORTS = [
+  { code:'newest',    icon:'clock', key:'common.sortNewest' },
+  { code:'cheapest',  icon:'banknote', key:'common.sortCheapest' },
+  { code:'expensive', icon:'gem', key:'common.sortExpensive' },
+  { code:'popular',   icon:'flame', key:'common.sortPopular' },
+];
+
+function fillSelect(el, items, selected, allLabel){
+  const opts = [];
+  if (allLabel !== null) opts.push(`<option value="">${allLabel}</option>`);
+  items.forEach(it => {
+    opts.push(`<option value="${it.code}"${it.code === selected ? ' selected' : ''}>${it.label}</option>`);
+  });
+  el.innerHTML = opts.join('');
+  el.value = selected || '';
+}
+
+function buildSelects(){
+  fillSelect($('sort'), SORTS.map(s => ({ code:s.code, label:t(s.key) })), state.sort, null);
+  fillSelect($('f-cat'),
+    categories.map(c => ({ code:c.slug, label:t(c.nameKey) })),
+    state.cat, t('common.all'));
+  updateSubFilter(true);
+  fillSelect($('f-city'), cityOptions(), state.city, t('common.all'));
+  fillSelect($('f-condition'), conditionOptions(), state.cond, t('common.all'));
+  $('sq').value = state.q;
+  $('f-min').value = state.min;
+  $('f-max').value = state.max;
+}
+
+/* Зердастаҳо — навъҳои категорияи интихобшуда (value = slug-и навъ) */
+function updateSubFilter(keepValue){
+  if (!keepValue) readState();
+  const catEng = state.cat ? getCatEngine(state.cat) : null;
+  const items = catEng ? catEng.types.map(ty => ({ code:ty.slug, label:t(ty.nameKey) })) : [];
+  const keep = keepValue && items.some(i => i.code === state.sub) ? state.sub : '';
+  state.sub = keep;
+  fillSelect($('f-sub'), items, keep, t('common.all'));
+}
+
+/* ---------------- Категорияҳо бо шумораи эълонҳо ---------------- */
+function renderMainCatGrid(){
+  const all = allListings();
+  $('main-cat-count-grid').innerHTML = categories.map(c => {
+    const n = all.filter(l => l.category === c.slug).length;
+    return `<a href="category.html?slug=${c.slug}" class="subcat-count-item">${iconHTML(catIcons[c.slug] || 'package')} ${t(c.nameKey)} <span class="n">${formatNumber(n)}</span></a>`;
+  }).join('');
+}
+
+/* ---------------- Навори чипҳои мобилӣ ---------------- */
+function renderMobileBar(){
+  const quick = ['cheapest','newest','popular'];
+  $('mobile-filter-bar').innerHTML =
+    `<div class="mf-chip" onclick="openFilterPanel()"><span class="ico" data-icon="sliders-horizontal"></span> ${t('common.filters')}</div>` +
+    quick.map(code => {
+      const s = SORTS.find(x => x.code === code);
+      const active = (state.sort === code && code !== 'newest') ? ' active' : '';
+      return `<div class="mf-chip${active}" id="mf-sort-${code}" onclick="quickSortSearch('${code}')">${iconHTML(s.icon)} ${t(s.key)}</div>`;
+    }).join('');
+}
+
+/* ---------------- Панели филтр (off-canvas дар мобилӣ) ---------------- */
+function openFilterPanel(){
+  $('filters-card').classList.add('mobile-open');
+  $('filter-scrim').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeFilterPanel(){
+  $('filters-card').classList.remove('mobile-open');
+  $('filter-scrim').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+/* ---------------- Ёрирасонҳо барои филтр (бо КОДҲО) ---------------- */
+function listingCityCode(l){
+  if (l.cityCode) return l.cityCode;
+  if (l.locationKey) {
+    const found = cityCodes.find(c => l.locationKey.indexOf(c) !== -1);
+    if (found) return found;
+  }
+  return null;
+}
+function matchCity(l, code){
+  if (!code) return true;
+  if (listingCityCode(l) === code) return true;
+  const label = cityLabel(code).toLowerCase();
+  return label ? listingLocation(l).toLowerCase().indexOf(label) !== -1 : false;
+}
+function matchQuery(l, q){
+  if (!q) return true;
+  const hay = [
+    listingTitle(l), listingDesc(l), listingLocation(l),
+    brandLabel(l.brand), l.model || '', listingSubcategory(l),
+  ].join(' ').toLowerCase();
+  return hay.indexOf(q) !== -1;
+}
+
+/* ---------------- Филтр + сортировка ---------------- */
+function filterAndSort(){
+  const q = state.q.toLowerCase();
+  const min = parseFloat(state.min) || 0;
+  const max = parseFloat(state.max) || Infinity;
+
+  filteredResults = allListings().filter(l => {
+    if (!matchQuery(l, q)) return false;
+    if (state.cat && l.category !== state.cat) return false;
+    if (state.sub && l.type !== state.sub) return false;
+    if (!matchCity(l, state.city)) return false;
+    if (state.cond && l.condition !== state.cond) return false;
+    if (l.price > 0 && (l.price < min || l.price > max)) return false;
+    return true;
+  });
+
+  if (state.sort === 'cheapest') filteredResults.sort((a,b) => (a.price || Infinity) - (b.price || Infinity));
+  else if (state.sort === 'expensive') filteredResults.sort((a,b) => (b.price || 0) - (a.price || 0));
+  else if (state.sort === 'popular') filteredResults.sort((a,b) => (b.views || 0) - (a.views || 0));
+  else filteredResults.sort((a,b) => new Date(b.createdAt) - new Date(a.createdAt));
+}
+
+function applyFilters(){
+  readState();
+  state.page = 1;
+  filterAndSort();
+  renderResults();
+  renderMobileBar();
+}
+
+/* ---------------- Натиҷаҳо ---------------- */
+function renderResults(){
+  const total = filteredResults.length;
+  const pages = Math.max(1, Math.ceil(total / perPage));
+  if (state.page > pages) state.page = pages;
+  const start = (state.page - 1) * perPage;
+  const pageItems = filteredResults.slice(start, start + perPage);
+
+  $('rc').textContent = t('search.found', { n: formatNumber(total) });
+
+  if (total === 0){
+    $('grid').innerHTML = '';
+    $('empty').classList.remove('hidden');
+    $('pagination').innerHTML = '';
+    return;
+  }
+  $('empty').classList.add('hidden');
+  $('grid').innerHTML = pageItems.map(renderCard).join('');
+  renderPagination(total);
+}
+
+function renderPagination(total){
+  const pages = Math.ceil(total / perPage);
+  if (pages <= 1){ $('pagination').innerHTML = ''; return; }
+  const cur = state.page;
+  let html = '';
+  html += `<button onclick="goPage(${cur-1})" ${cur===1?'disabled':''} title="${t('common.prev')}" aria-label="${t('common.prev')}" style="padding:8px 14px;border-radius:10px;border:1px solid #e2e8f0;background:${cur===1?'#f1f5f9':'white'};color:${cur===1?'#94a3b8':'#0F7A6B'};cursor:${cur===1?'not-allowed':'pointer'};font-weight:600;"><span class="ico" data-icon="arrow-left"></span></button>`;
+  for (let i = 1; i <= pages; i++){
+    if (i===1 || i===pages || (i>=cur-1 && i<=cur+1)){
+      html += `<button onclick="goPage(${i})" aria-label="${t('common.page', { n: i })}" style="padding:8px 14px;border-radius:10px;border:1px solid ${i===cur?'#0F7A6B':'#e2e8f0'};background:${i===cur?'linear-gradient(135deg,#0F7A6B,#1E8449)':'white'};color:${i===cur?'white':'#0F7A6B'};cursor:pointer;font-weight:600;min-width:36px;">${formatNumber(i)}</button>`;
+    } else if (i===cur-2 || i===cur+2){
+      html += `<span style="padding:8px;color:#94a3b8;" aria-hidden="true">...</span>`;
+    }
+  }
+  html += `<button onclick="goPage(${cur+1})" ${cur===pages?'disabled':''} title="${t('common.next')}" aria-label="${t('common.next')}" style="padding:8px 14px;border-radius:10px;border:1px solid #e2e8f0;background:${cur===pages?'#f1f5f9':'white'};color:${cur===pages?'#94a3b8':'#0F7A6B'};cursor:${cur===pages?'not-allowed':'pointer'};font-weight:600;"><span class="ico" data-icon="arrow-right"></span></button>`;
+  $('pagination').innerHTML = html;
+}
+
+function goPage(p){
+  const pages = Math.ceil(filteredResults.length / perPage);
+  if (p < 1 || p > pages) return;
+  state.page = p;
+  renderResults();
+  window.scrollTo({ top:0, behavior:'smooth' });
+}
+
+function quickSortSearch(code){
+  state.sort = (state.sort === code && code !== 'newest') ? 'newest' : code;
+  $('sort').value = state.sort;
+  applyFilters();
+}
+
+function resetFilters(){
+  state.q = ''; state.cat = ''; state.sub = ''; state.city = '';
+  state.cond = ''; state.min = ''; state.max = ''; state.sort = 'newest';
+  state.page = 1;
+  buildSelects();
+  filterAndSort();
+  renderResults();
+  renderMobileBar();
+}
+
+/* ---------------- Render-и умумӣ (ҳам оғоз, ҳам иваз шудани забон) ---------------- */
+function renderPage(){
+  buildSelects();
+  renderMainCatGrid();
+  renderMobileBar();
+  filterAndSort();
+  renderResults();
+}
+
+function initPage(){
+  const p = new URLSearchParams(location.search);
+  state.q = p.get('q') || '';
+  const slug = p.get('slug') || p.get('cat') || '';
+  if (slug && getCatEngine(slug)) state.cat = slug;
+  renderPage();
+}
+
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initPage);
+else initPage();
+
+/* Иваз шудани забон — БЕ reload, бо нигоҳ доштани филтрҳо */
+I18N.onChange(() => { readState(); renderPage(); });
+</script>
+</body>
+</html>
