@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="tg">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" data-i18n-attr="content:meta.post.desc">
+<meta property="og:title" data-i18n-attr="content:meta.post.ogTitle">
+<meta property="og:description" data-i18n-attr="content:meta.post.ogDesc">
+<meta property="og:type" content="website">
+<title data-i18n="meta.post.title"></title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="flex flex-col" style="min-height:100vh;">
+
+<header class="header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo"><span class="logo-word"><span style="color:#4A6CF7">e</span><span style="color:#FF5C39">l</span><span style="color:#FFB020">o</span><span style="color:#4A6CF7">n</span><span style="color:#22A559">.</span><span style="color:#1a1a1a">tj</span></span></a>
+    <div class="search-box">
+      <span class="search-icon"><span class="ico" data-icon="search"></span></span>
+      <form action="search.html" class="w-full"><input type="text" name="q" data-i18n-attr="placeholder:ph.search;aria-label:ph.search"><button type="submit" class="search-btn" data-i18n="common.find"></button></form>
+    </div>
+    <nav class="nav-btns" data-i18n-attr="aria-label:nav.mainNav">
+      <a href="messages.html" class="nav-btn" data-i18n-attr="title:nav.messages;aria-label:nav.messages"><span class="ico" data-icon="message-circle"></span></a>
+      <a href="favorites.html" class="nav-btn" data-i18n-attr="title:nav.favorites;aria-label:nav.favorites"><span class="ico" data-icon="heart"></span></a>
+      <a href="profile.html" class="nav-btn" data-i18n-attr="title:nav.profile;aria-label:nav.profile"><span class="ico" data-icon="user"></span></a>
+      <div data-lang-switcher></div>
+      <a href="post.html" class="btn-primary" data-i18n="common.newListing"></a>
+      <button class="mobile-menu-btn" onclick="toggleMenu()" data-i18n-attr="title:nav.menu;aria-label:nav.menu"><span class="ico" data-icon="menu"></span></button>
+    </nav>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-header">
+    <a href="index.html" class="logo"><span class="logo-word"><span style="color:#4A6CF7">e</span><span style="color:#FF5C39">l</span><span style="color:#FFB020">o</span><span style="color:#4A6CF7">n</span><span style="color:#22A559">.</span><span style="color:#1a1a1a">tj</span></span></a>
+    <button class="mobile-menu-close" onclick="toggleMenu()" data-i18n-attr="title:common.close;aria-label:common.close"><span class="ico" data-icon="x"></span></button>
+  </div>
+  <div data-lang-switcher></div>
+  <ul class="mobile-menu-list">
+    <li><a href="index.html"><span class="menu-icon" style="background:#dbeafe;"><span class="ico" data-icon="house"></span></span> <span data-i18n="menu.home"></span></a></li>
+    <li><a href="search.html"><span class="menu-icon" style="background:#d1fae5;"><span class="ico" data-icon="search"></span></span> <span data-i18n="menu.search"></span></a></li>
+    <li><a href="post.html"><span class="menu-icon" style="background:#ede9fe;"><span class="ico" data-icon="plus"></span></span> <span data-i18n="menu.post"></span></a></li>
+    <li><a href="messages.html"><span class="menu-icon" style="background:#fef3c7;"><span class="ico" data-icon="message-circle"></span></span> <span data-i18n="menu.messages"></span></a></li>
+    <li><a href="favorites.html"><span class="menu-icon" style="background:#ffe4e6;"><span class="ico" data-icon="heart"></span></span> <span data-i18n="menu.favorites"></span></a></li>
+    <li><a href="profile.html"><span class="menu-icon" style="background:#dcfce7;"><span class="ico" data-icon="user"></span></span> <span data-i18n="menu.profile"></span></a></li>
+  </ul>
+  <div style="margin-top:24px;padding-top:24px;border-top:1px solid #e2e8f0;">
+    <p style="font-size:12px;font-weight:600;color:#94a3b8;margin-bottom:12px;text-transform:uppercase;letter-spacing:0.5px;" data-i18n="menu.categories"></p>
+    <div class="mobile-menu-cats" id="mobile-cats"></div>
+  </div>
+</div>
+
+<main style="flex:1;">
+  <div class="bg-slate-50 py-6">
+    <div class="container">
+      <nav class="breadcrumb" data-i18n-attr="aria-label:nav.breadcrumb">
+        <a href="index.html" data-i18n="menu.home"></a>
+        <span class="breadcrumb-sep">/</span>
+        <span data-i18n="post.h1"></span>
+      </nav>
+
+      <div class="form-section" style="max-width:720px;margin:0 auto;">
+        <h1 style="font-size:24px;font-weight:800;color:#0f172a;margin-bottom:8px;"><span aria-hidden="true"><span class="ico" data-icon="pencil"></span></span> <span data-i18n="post.h1"></span></h1>
+        <p style="color:#64748b;margin-bottom:20px;font-size:14px;" data-i18n="post.subtitle"></p>
+
+        <div class="path-trail" id="path-trail" style="display:none;"></div>
+
+        <form id="postForm" style="display:flex;flex-direction:column;gap:18px;" onsubmit="return handleSubmit(event)" novalidate>
+
+          <div class="form-section-block" id="block-category">
+            <label class="form-label" style="margin-bottom:10px;display:block;"><span data-i18n="post.step1"></span> <span style="color:#ef4444;" aria-hidden="true">*</span></label>
+            <div class="pick-grid" id="cat-grid"></div>
+          </div>
+
+          <div class="form-section-block" id="block-type" style="display:none;">
+            <label class="form-label" style="margin-bottom:10px;display:block;"><span data-i18n="post.step2"></span> <span style="color:#ef4444;" aria-hidden="true">*</span></label>
+            <div class="pick-grid" id="type-grid"></div>
+          </div>
+
+          <div class="form-section-block" id="block-brand" style="display:none;">
+            <label class="form-label" style="margin-bottom:8px;display:block;" for="brandInput"><span data-i18n="post.step3"></span> <span style="color:#94a3b8;font-weight:400;">(<span data-i18n="common.optional"></span>)</span></label>
+            <select id="brandInput" class="form-input" data-i18n-attr="aria-label:post.step3"></select>
+          </div>
+
+          <div class="form-section-block" id="block-model" style="display:none;">
+            <label class="form-label" style="margin-bottom:8px;display:block;" for="modelInput"><span data-i18n="post.step4"></span> <span style="color:#94a3b8;font-weight:400;">(<span data-i18n="common.optional"></span>)</span></label>
+            <select id="modelInput" class="form-input" data-i18n-attr="aria-label:post.step4"></select>
+          </div>
+
+          <div class="form-section-block" id="block-attrs" style="display:none;">
+            <label class="form-label" style="margin-bottom:10px;display:block;"><span data-i18n="post.step5"></span> <span style="color:#94a3b8;font-weight:400;">(<span data-i18n="common.optional"></span>)</span></label>
+            <div id="attrs-fields" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;"></div>
+          </div>
+
+          <div class="form-section-block" id="block-details" style="display:none;">
+            <label class="form-label" style="margin-bottom:12px;display:block;" data-i18n="post.step6"></label>
+            <div style="display:flex;flex-direction:column;gap:16px;">
+              <div>
+                <label class="form-label" for="title"><span data-i18n="post.fieldTitle"></span> <span style="color:#ef4444;" aria-hidden="true">*</span></label>
+                <input type="text" id="title" name="title" data-i18n-attr="placeholder:ph.adTitle" class="form-input" maxlength="100" required>
+                <div style="display:flex;justify-content:space-between;margin-top:4px;">
+                  <span class="error-msg" id="err-title" data-i18n="err.title"></span>
+                  <span class="form-hint" id="title-count"></span>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div>
+                  <label class="form-label" for="price"><span data-i18n="post.fieldPrice"></span> <span style="color:#ef4444;" aria-hidden="true">*</span></label>
+                  <div class="price-input-wrap">
+                    <input type="number" id="price" name="price" placeholder="15000" class="form-input" min="0" data-i18n-attr="aria-label:post.fieldPrice" required>
+                    <span class="currency-badge" data-i18n="currency.somoni"></span>
+                  </div>
+                  <span class="error-msg" id="err-price" data-i18n="err.price"></span>
+                </div>
+                <div>
+                  <label class="form-label" for="condition"><span data-i18n="post.fieldCondition"></span> <span style="color:#ef4444;" aria-hidden="true">*</span></label>
+                  <select id="condition" name="condition" class="form-input" data-i18n-attr="aria-label:post.fieldCondition" required></select>
+                  <span class="error-msg" id="err-condition" data-i18n="err.condition"></span>
+                </div>
+              </div>
+
+              <label class="toggle-row">
+                <input type="checkbox" id="negotiable" name="negotiable">
+                <span class="toggle-label" data-i18n="post.negotiable"></span>
+              </label>
+
+              <div>
+                <label class="form-label" for="city"><span data-i18n="post.fieldCity"></span> <span style="color:#ef4444;" aria-hidden="true">*</span></label>
+                <input type="text" id="city" name="city" list="cities" class="form-input" data-i18n-attr="placeholder:ph.city;aria-label:post.fieldCity" required>
+                <datalist id="cities"></datalist>
+                <span class="error-msg" id="err-city" data-i18n="err.city"></span>
+              </div>
+
+              <div>
+                <label class="form-label" for="desc"><span data-i18n="post.fieldDesc"></span> <span style="color:#ef4444;" aria-hidden="true">*</span></label>
+                <textarea id="desc" name="description" rows="5" class="form-input" style="resize:vertical;" minlength="20" data-i18n-attr="placeholder:ph.adDesc;aria-label:post.fieldDesc" required></textarea>
+                <div style="display:flex;justify-content:space-between;margin-top:4px;">
+                  <span class="error-msg" id="err-desc" data-i18n="err.desc"></span>
+                  <span class="form-hint" id="desc-count"></span>
+                </div>
+              </div>
+
+              <div>
+                <label class="form-label"><span data-i18n="post.fieldImages"></span> <span style="color:#94a3b8;font-weight:400;">(<span data-i18n="common.optional"></span>)</span></label>
+                <input type="file" id="imgFileInput" accept="image/*" multiple style="display:none" data-i18n-attr="aria-label:post.fieldImages" onchange="handleImgFiles(this.files)">
+                <div class="image-grid" id="imgs"></div>
+                <p class="form-hint" data-i18n="post.imagesHint" data-i18n-args='{"n":8}'></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-section-block" id="block-contact" style="display:none;">
+            <label class="form-label" style="margin-bottom:12px;display:block;" data-i18n="post.step7"></label>
+            <div>
+              <label class="form-label" for="phone"><span data-i18n="post.fieldPhone"></span> <span style="color:#ef4444;" aria-hidden="true">*</span></label>
+              <input type="tel" id="phone" name="phone" placeholder="+992 91 123 45 67" value="+992" class="form-input" pattern="\+992\s?[0-9]{2}\s?[0-9]{3}\s?[0-9]{2}\s?[0-9]{2}" data-i18n-attr="aria-label:post.fieldPhone" required>
+              <span class="error-msg" id="err-phone" data-i18n="err.phone"></span>
+              <p class="form-hint" data-i18n="post.phoneHint"></p>
+            </div>
+            <label class="toggle-row" style="margin-top:12px;">
+              <input type="checkbox" id="whatsapp" name="whatsapp">
+              <span class="toggle-label" data-i18n="post.hasWhatsapp"></span>
+            </label>
+            <label class="toggle-row">
+              <input type="checkbox" id="telegram" name="telegram">
+              <span class="toggle-label" data-i18n="post.hasTelegram"></span>
+            </label>
+            <div style="padding:14px;background:#f0fdf4;border-radius:12px;border:1px solid #bbf7d0;margin-top:12px;">
+              <p style="font-size:13px;color:#166534;display:flex;align-items:flex-start;gap:8px;">
+                <span style="font-size:16px;" aria-hidden="true"><span class="ico" data-icon="shield-check"></span></span>
+                <span data-i18n="post.antifraud"></span>
+              </p>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:12px;padding-top:12px;border-top:1px solid #e2e8f0;">
+            <a href="index.html" class="btn-secondary" style="flex:1;text-align:center;" data-i18n="common.cancel"></a>
+            <button type="submit" id="btn-submit" class="btn-primary" style="flex:2;border:none;cursor:pointer;display:none;"><span aria-hidden="true"><span class="ico" data-icon="check"></span></span> <span data-i18n="post.submit"></span></button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="successModal">
+    <div class="modal-content">
+      <div class="modal-icon" aria-hidden="true"><span class="ico" data-icon="check"></span></div>
+      <h2 class="modal-title" data-i18n="ok.postCreated"></h2>
+      <p class="modal-text" data-i18n="post.successText"></p>
+      <a href="listing.html" id="modal-link" class="btn-primary" style="display:inline-block;" data-i18n="post.viewMyAd"></a>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;">
+      <div><div class="logo" style="color:white;margin-bottom:16px;"><span class="logo-word">elon<span style="color:#FFB020">.tj</span></span></div><p style="font-size:14px;line-height:1.6;" data-i18n="footer.about"></p></div>
+      <div><h3 data-i18n="footer.categories"></h3><div class="footer-cats" id="footer-cats"></div></div>
+      <div><h3 data-i18n="footer.info"></h3><ul><li><a href="#" data-i18n="footer.aboutUs"></a></li><li><a href="#" data-i18n="footer.rules"></a></li><li><a href="#" data-i18n="footer.help"></a></li></ul></div>
+      <div><h3 data-i18n="footer.contact"></h3><ul><li><span aria-hidden="true"><span class="ico" data-icon="phone"></span></span> +992 44 600 00 00</li><li><span aria-hidden="true"><span class="ico" data-icon="mail"></span></span> info@elon.tj</li><li><span aria-hidden="true"><span class="ico" data-icon="map-pin"></span></span> <span data-i18n="city.dushanbe"></span></li></ul></div>
+    </div>
+    <div class="footer-bottom" data-i18n="footer.rights"></div>
+  </div>
+</footer>
+
+<!-- Луғатҳо (fallback): сайт ҳатто аз file:// бе сервер кор мекунад -->
+<script src="locales/bundles.js"></script>
+<script src="icons.js"></script>
+  <script src="i18n.js"></script>
+<script src="category-engine.js"></script>
+<script src="data.js"></script>
+<script src="storage.js"></script>
+<script src="layout.js"></script>
+<script>
+/* ---------------- Ҳолати форма (ҳангоми иваз шудани забон нигоҳ дошта мешавад) ---------------- */
+let selCategory = null;
+let selType = null;
+let selBrand = null;      // brandId: номи хос ('Toyota') ё калид ('brand.other')
+let selModel = null;
+let selAttrs = {};
+let selCondition = '';    // код: new / used / good
+let imgCount = 0;
+let imgB64 = [];
+
+/* ---------------- Категория ва навъ ---------------- */
+function renderCatGrid(){
+  document.getElementById('cat-grid').innerHTML = CATEGORY_TREE.map(c => `
+    <div class="pick-tile ${selCategory===c.slug?'selected':''}" role="button" tabindex="0"
+         onclick="pickCategory('${c.slug}')" title="${t(c.nameKey)}">
+      <span class="pick-icon" aria-hidden="true">${iconHTML(c.icon)}</span>
+      <span>${t(c.nameKey)}</span>
+    </div>
+  `).join('');
+}
+
+function renderTypeGrid(){
+  const cat = getCatEngine(selCategory);
+  const grid = document.getElementById('type-grid');
+  if (!cat) { grid.innerHTML = ''; return; }
+  grid.innerHTML = cat.types.map(ty => `
+    <div class="pick-tile ${selType===ty.slug?'selected':''}" role="button" tabindex="0"
+         onclick="pickType('${ty.slug}')" title="${t(ty.nameKey)}">
+      <span>${t(ty.nameKey)}</span>
+    </div>
+  `).join('');
+}
+
+function pickCategory(slug){
+  if (selCategory !== slug) {
+    selCategory = slug; selType = null; selBrand = null; selModel = null; selAttrs = {};
+  }
+  renderCatGrid();
+  renderTypeGrid();
+  document.getElementById('block-type').style.display = 'block';
+  ['block-brand','block-model','block-attrs'].forEach(id => document.getElementById(id).style.display='none');
+  updatePathTrail();
+  revealDetailsIfReady();
+}
+
+function pickType(slug){
+  if (selType !== slug) { selType = slug; selBrand = null; selModel = null; selAttrs = {}; }
+  renderTypeGrid();
+  renderBrandSelect();
+  renderModelSelect();
+  renderAttrFields();
+  updatePathTrail();
+  revealDetailsIfReady();
+}
+
+/* ---------------- Бренд ва модел (value = код/номи хос, матн = тарҷума) ---------------- */
+function renderBrandSelect(){
+  const sel = document.getElementById('brandInput');
+  const brands = selType ? getAllBrandsForType(selCategory, selType) : [];
+  if (!brands.length) {
+    document.getElementById('block-brand').style.display = 'none';
+    sel.innerHTML = '';
+    return;
+  }
+  document.getElementById('block-brand').style.display = 'block';
+  sel.innerHTML = `<option value="">${t('ph.select')}</option>` +
+    brands.map(b => `<option value="${brandId(b)}">${brandName(b)}</option>`).join('');
+  sel.value = selBrand || '';
+}
+
+function renderModelSelect(){
+  const sel = document.getElementById('modelInput');
+  const models = (selBrand && selType) ? getModelsForBrand(selCategory, selType, selBrand) : [];
+  if (!models.length) {
+    document.getElementById('block-model').style.display = 'none';
+    sel.innerHTML = '';
+    selModel = null;
+    return;
+  }
+  document.getElementById('block-model').style.display = 'block';
+  sel.innerHTML = `<option value="">${t('ph.select')}</option>` +
+    models.map(m => `<option value="${m}">${m}</option>`).join('');
+  sel.value = selModel || '';
+}
+
+document.getElementById('brandInput').addEventListener('change', function(){
+  selBrand = this.value || null;
+  selModel = null;
+  renderModelSelect();
+  updatePathTrail();
+});
+document.getElementById('modelInput').addEventListener('change', function(){
+  selModel = this.value || null;
+  updatePathTrail();
+});
+
+/* ---------------- Атрибутҳои динамикӣ ---------------- */
+function renderAttrFields(){
+  const typeObj = (selCategory && selType) ? getTypeEngine(selCategory, selType) : null;
+  const wrap = document.getElementById('attrs-fields');
+  if (!typeObj || !typeObj.attributes || !typeObj.attributes.length) {
+    document.getElementById('block-attrs').style.display = 'none';
+    wrap.innerHTML = '';
+    return;
+  }
+  document.getElementById('block-attrs').style.display = 'block';
+  wrap.innerHTML = typeObj.attributes.map(a => {
+    const label = attrLabel(a);
+    if (a.type === 'select') {
+      const opts = a.options.map(code =>
+        `<option value="${code}" ${selAttrs[a.key]===code?'selected':''}>${optLabel(a.key, code)}</option>`).join('');
+      return `<div><label class="form-label" for="attr-${a.key}">${label}</label>
+        <select id="attr-${a.key}" class="form-input attr-field" data-key="${a.key}" aria-label="${label}"
+                onchange="setAttr('${a.key}', this.value)">
+          <option value="">${t('ph.select')}</option>${opts}
+        </select></div>`;
+    }
+    const val = selAttrs[a.key] ? String(selAttrs[a.key]).replace(/"/g,'&quot;') : '';
+    return `<div><label class="form-label" for="attr-${a.key}">${label}</label>
+      <input id="attr-${a.key}" type="${a.type==='number'?'number':'text'}" class="form-input attr-field"
+             data-key="${a.key}" value="${val}" placeholder="${label}" aria-label="${label}"
+             oninput="setAttr('${a.key}', this.value)"></div>`;
+  }).join('');
+}
+function setAttr(key, value){
+  if (value === '') delete selAttrs[key]; else selAttrs[key] = value;
+}
+
+/* ---------------- Ҳолат ва шаҳрҳо ---------------- */
+function renderConditionSelect(){
+  const sel = document.getElementById('condition');
+  sel.innerHTML = `<option value="">${t('ph.select')}</option>` +
+    conditionOptions().map(o => `<option value="${o.code}">${o.label}</option>`).join('');
+  sel.value = selCondition || '';
+}
+function renderCityList(){
+  document.getElementById('cities').innerHTML =
+    cityOptions().map(o => `<option value="${o.label}"></option>`).join('');
+}
+
+/* ---------------- Роҳи интихоб ---------------- */
+function updatePathTrail(){
+  const trail = document.getElementById('path-trail');
+  const parts = [];
+  if (selCategory) { const c = getCatEngine(selCategory); if (c) parts.push(t(c.nameKey)); }
+  if (selType) { const ty = getTypeEngine(selCategory, selType); if (ty) parts.push(t(ty.nameKey)); }
+  if (selBrand) parts.push(brandLabel(selBrand));
+  if (selModel) parts.push(selModel);
+  if (!parts.length) { trail.style.display = 'none'; trail.innerHTML = ''; return; }
+  trail.style.display = 'flex';
+  trail.innerHTML = parts.map((p,i) => `<span class="seg">${p}</span>${i<parts.length-1?'<span class="sep" aria-hidden="true">›</span>':''}`).join('') +
+    `<button type="button" class="change-btn" onclick="resetSelection()">${t('post.change')}</button>`;
+}
+
+function resetSelection(){
+  selCategory = null; selType = null; selBrand = null; selModel = null; selAttrs = {};
+  selCondition = '';
+  imgCount = 0; imgB64 = [];
+  renderImgGrid();
+  renderCatGrid();
+  renderConditionSelect();
+  ['block-type','block-brand','block-model','block-attrs','block-details','block-contact'].forEach(id => document.getElementById(id).style.display='none');
+  document.getElementById('btn-submit').style.display = 'none';
+  updatePathTrail();
+}
+
+function revealDetailsIfReady(){
+  if (selCategory && selType) {
+    document.getElementById('block-details').style.display = 'block';
+    document.getElementById('block-contact').style.display = 'block';
+    document.getElementById('btn-submit').style.display = 'block';
+  }
+}
+
+/* ---------------- Тасвирҳо (base64 — бе backend кор мекунад) ---------------- */
+function renderImgGrid(){
+  const g = document.getElementById('imgs');
+  g.innerHTML = imgB64.map((b64,i) => `
+    <div class="image-preview" data-b64="${b64}">
+      <img src="${b64}" alt="${t('post.imageAlt')}"><span class="img-num">${i+1}</span>
+      <button type="button" class="remove-btn" onclick="removeImg(this)" title="${t('common.delete')}" aria-label="${t('common.delete')}"><span class="ico" data-icon="x"></span></button>
+    </div>`).join('') + `
+    <div class="image-slot" role="button" tabindex="0" onclick="addImg()" title="${t('post.addImage')}">
+      <span style="font-size:24px;" aria-hidden="true"><span class="ico" data-icon="camera"></span></span>
+      <span style="font-size:12px;font-weight:500;">${t('post.addImage')}</span>
+    </div>`;
+}
+
+function addImg(){
+  if(imgCount >= 8){ showToast('err.maxImages', 'error', { n: 8 }); return; }
+  document.getElementById('imgFileInput').click();
+}
+
+// Хурд ва фишурда кардани сурат пеш аз нигоҳдорӣ (то ҷои зиёд дар браузер нагирад)
+function compressImage(file, maxDim, quality){
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    const reader = new FileReader();
+    reader.onload = e => { img.src = e.target.result; };
+    reader.onerror = reject;
+    img.onload = () => {
+      let { width, height } = img;
+      if (width > maxDim || height > maxDim) {
+        if (width > height) { height = Math.round(height * maxDim / width); width = maxDim; }
+        else { width = Math.round(width * maxDim / height); height = maxDim; }
+      }
+      const canvas = document.createElement('canvas');
+      canvas.width = width; canvas.height = height;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0, width, height);
+      resolve(canvas.toDataURL('image/jpeg', quality));
+    };
+    img.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+}
+
+async function handleImgFiles(fileList){
+  const files = Array.from(fileList || []);
+  for (const file of files) {
+    if (imgCount >= 8) { showToast('err.maxImages', 'error', { n: 8 }); break; }
+    if (!file.type.startsWith('image/')) continue;
+    try {
+      const b64 = await compressImage(file, 1024, 0.72);
+      imgCount++;
+      imgB64.push(b64);
+      renderImgGrid();
+    } catch (err) {
+      showToast('err.imgUpload', 'error');
+    }
+  }
+  document.getElementById('imgFileInput').value = '';
+}
+function removeImg(btn){
+  const wrap = btn.parentElement;
+  imgB64 = imgB64.filter(u => u !== wrap.dataset.b64);
+  imgCount = imgB64.length;
+  renderImgGrid();
+}
+
+/* ---------------- Хатоҳо ва toast ---------------- */
+function showError(field){
+  const el = document.getElementById(field);
+  if(el){ el.classList.add('error'); el.classList.remove('success'); }
+  const err = document.getElementById('err-'+field);
+  if(err) err.classList.add('show');
+}
+function clearError(field){
+  const el = document.getElementById(field);
+  if(el){ el.classList.remove('error'); el.classList.add('success'); }
+  const err = document.getElementById('err-'+field);
+  if(err) err.classList.remove('show');
+}
+
+function showToast(key, type, vars){
+  const el = document.getElementById('toast');
+  el.dataset.i18n = key;                       // калид нигоҳ дошта мешавад
+  el.dataset.i18nArgs = vars ? JSON.stringify(vars) : '';
+  el.textContent = t(key, vars);
+  el.className = 'toast ' + (type || '');
+  setTimeout(() => el.classList.add('show'), 10);
+  setTimeout(() => el.classList.remove('show'), 3000);
+}
+/* Агар ҳангоми намоён будани toast забон иваз шавад — матн фавран тарҷума мешавад */
+if (window.I18N) I18N.onChange(() => {
+  const el = document.getElementById('toast');
+  if (el && el.dataset.i18n && el.classList.contains('show')) {
+    el.textContent = t(el.dataset.i18n, el.dataset.i18nArgs ? JSON.parse(el.dataset.i18nArgs) : undefined);
+  }
+});
+
+/* ---------------- Ҳисобкунакҳо ва валидатсияи зинда ---------------- */
+function renderCounters(){
+  document.getElementById('title-count').textContent =
+    t('post.titleCount', { n: document.getElementById('title').value.length, max: 100 });
+  document.getElementById('desc-count').textContent =
+    t('post.charsN', { n: document.getElementById('desc').value.length });
+}
+
+document.getElementById('title').addEventListener('input', function(){
+  renderCounters();
+  if(this.value.length >= 5) clearError('title');
+});
+document.getElementById('desc').addEventListener('input', function(){
+  renderCounters();
+  if(this.value.length >= 20) clearError('desc');
+});
+['condition','city','price','phone'].forEach(id => {
+  const el = document.getElementById(id);
+  if(el){ el.addEventListener('change', () => clearError(id)); el.addEventListener('input', () => clearError(id)); }
+});
+document.getElementById('condition').addEventListener('change', function(){ selCondition = this.value; });
+document.getElementById('negotiable').addEventListener('change', function(){
+  applyNegotiable();
+  if (this.checked) clearError('price');
+});
+function applyNegotiable(){
+  const price = document.getElementById('price');
+  const on = document.getElementById('negotiable').checked;
+  price.disabled = on;
+  if (on) { price.value = ''; price.placeholder = t('common.negotiable'); }
+  else { price.placeholder = '15000'; }
+}
+
+/* ---------------- Сабти эълон ---------------- */
+function handleSubmit(e){
+  e.preventDefault();
+  let valid = true;
+  if(!selCategory){ showToast('err.pickCategory', 'error'); return false; }
+  if(!selType){ showToast('err.pickType', 'error'); return false; }
+
+  const title = document.getElementById('title');
+  const price = document.getElementById('price');
+  const cond = document.getElementById('condition');
+  const city = document.getElementById('city');
+  const desc = document.getElementById('desc');
+  const phone = document.getElementById('phone');
+  const phoneRe = /^[+]?[0-9\s]{9,}$/;
+
+  if(title.value.trim().length < 5){ showError('title'); valid=false; }
+  if(!document.getElementById('negotiable').checked && (!price.value || price.value < 0)){ showError('price'); valid=false; }
+  if(!cond.value){ showError('condition'); valid=false; }
+  if(!city.value.trim()){ showError('city'); valid=false; }
+  if(desc.value.trim().length < 20){ showError('desc'); valid=false; }
+  if(!phoneRe.test(phone.value.trim())){ showError('phone'); valid=false; }
+
+  if(!valid){ showToast('err.fillRequired', 'error'); return false; }
+
+  const newId = nextListingId();
+  const priceVal = document.getElementById('negotiable').checked ? 0 : (parseFloat(price.value) || 0);
+
+  /* Матни худи корбар (унвон, тавсиф, шаҳр) тарҷума намешавад — ҳамон тавр сабт мешавад.
+     Ҳолат ва асъор — кодҳо; атрибутҳо — кодҳо/рақамҳо. */
+  const newListing = {
+    id: newId,
+    title: title.value.trim(),
+    description: desc.value.trim(),
+    price: priceVal,
+    currency: 'somoni',
+    category: selCategory,
+    type: selType,
+    brand: selBrand || undefined,
+    model: selModel || undefined,
+    attrs: Object.keys(selAttrs).length ? { ...selAttrs } : undefined,
+    location: city.value.trim(),
+    condition: cond.value,
+    author: { id:'me', nameKey:'common.you', rating:5.0, listingsCount:getUserListings().length+1, memberSince:'2026-08-01' },
+    createdAt: new Date().toISOString(),
+    views: 0,
+    phone: phone.value.trim(),
+    images: imgB64.length ? imgB64 : undefined,
+  };
+
+  let ok = addUserListing(newListing);
+  if (!ok && newListing.images) {
+    // Агар аз сабаби ҳаҷми зиёди суратҳо сабт нашуда бошад — бе сурат такрор кунем
+    const noImg = { ...newListing, images: undefined };
+    ok = addUserListing(noImg);
+    if (ok) showToast('ok.savedNoImages', 'error');
+  }
+  if (!ok) { showToast('err.saveFailed', 'error'); return false; }
+  imgCount = 0; imgB64 = [];
+  renderImgGrid();
+  document.getElementById('successModal').classList.add('active');
+  document.getElementById('modal-link').href = 'listing.html?id=' + newId;
+  localStorage.removeItem('postDraft');
+  return false;
+}
+
+/* ---------------- Драфт ---------------- */
+function saveDraft(){
+  const form = document.getElementById('postForm');
+  const formData = new FormData(form);
+  const data = {};
+  for(let [k,v] of formData) data[k] = v;
+  data._sel = { selCategory, selType, selBrand, selModel, selAttrs, selCondition };
+  localStorage.setItem('postDraft', JSON.stringify(data));
+}
+function loadDraft(){
+  const draft = localStorage.getItem('postDraft');
+  if(!draft) return;
+  try{
+    const data = JSON.parse(draft);
+    if (data._sel && data._sel.selCategory) {
+      selCategory = data._sel.selCategory;
+      selType = data._sel.selType || null;
+      selBrand = data._sel.selBrand || null;
+      selModel = data._sel.selModel || null;
+      selAttrs = data._sel.selAttrs || {};
+      selCondition = data._sel.selCondition || '';
+      pickCategory(selCategory);
+      if (selType) pickType(selType);
+    }
+    Object.keys(data).forEach(k => {
+      if (k === '_sel') return;
+      const el = document.querySelector('[name="'+k+'"]');
+      if(el && el.type !== 'checkbox') el.value = data[k];
+    });
+    renderConditionSelect();
+    renderCounters();
+  }catch(e){}
+}
+
+/* ---------------- Render-и умумӣ + иваз шудани забон ---------------- */
+function renderPage(){
+  renderCatGrid();
+  if (selCategory) { renderTypeGrid(); document.getElementById('block-type').style.display = 'block'; }
+  renderBrandSelect();
+  renderModelSelect();
+  renderAttrFields();
+  renderConditionSelect();
+  renderCityList();
+  renderImgGrid();
+  renderCounters();
+  applyNegotiable();
+  updatePathTrail();
+  revealDetailsIfReady();
+}
+
+renderPage();
+setInterval(saveDraft, 8000);
+window.addEventListener('load', loadDraft);
+I18N.onChange(renderPage);
+</script>
+</body>
+</html>
