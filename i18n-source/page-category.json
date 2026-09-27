@@ -1,0 +1,92 @@
+{
+  "meta.category.title": {
+    "tg": "Категория — elon.tj",
+    "ru": "Категория — elon.tj",
+    "en": "Category — elon.tj"
+  },
+  "meta.category.desc": {
+    "tg": "Эълонҳои категория дар elon.tj: филтр аз рӯи зердаста, бренд, шаҳр ва нарх.",
+    "ru": "Объявления категории на elon.tj: фильтр по подкатегории, бренду, городу и цене.",
+    "en": "Category listings on elon.tj: filter by subcategory, brand, city and price."
+  },
+  "meta.category.ogTitle": {
+    "tg": "Эълонҳо аз рӯи категория — elon.tj",
+    "ru": "Объявления по категориям — elon.tj",
+    "en": "Listings by category — elon.tj"
+  },
+  "meta.category.ogDesc": {
+    "tg": "Эълонҳои нав дар ҳамаи шаҳрҳои Тоҷикистон.",
+    "ru": "Свежие объявления во всех городах Таджикистана.",
+    "en": "Fresh listings in every city of Tajikistan."
+  },
+  "category.subcategory": {
+    "tg": "Зердаста",
+    "ru": "Подкатегория",
+    "en": "Subcategory"
+  },
+  "category.brand": {
+    "tg": "Бренд",
+    "ru": "Бренд",
+    "en": "Brand"
+  },
+  "category.priceLabel": {
+    "tg": "Нарх (сомонӣ)",
+    "ru": "Цена (сомони)",
+    "en": "Price (somoni)"
+  },
+  "category.allCities": {
+    "tg": "Ҳама шаҳрҳо",
+    "ru": "Все города",
+    "en": "All cities"
+  },
+  "category.count": {
+    "tg": "{{n}} эълон",
+    "ru": "{{n}} объявлений",
+    "en": "{{n}} listings"
+  },
+  "category.viewGrid": {
+    "tg": "Намуди панҷара",
+    "ru": "Плиткой",
+    "en": "Grid view"
+  },
+  "category.viewList": {
+    "tg": "Намуди рӯйхат",
+    "ru": "Списком",
+    "en": "List view"
+  },
+  "category.emptyTitle": {
+    "tg": "Эълонҳо ёфт нашуданд",
+    "ru": "Объявления не найдены",
+    "en": "No listings found"
+  },
+  "category.emptyText": {
+    "tg": "Филтрҳоро тағйир диҳед ё тоза кунед",
+    "ru": "Измените или сбросьте фильтры",
+    "en": "Change or reset the filters"
+  },
+  "common.from": {
+    "tg": "Аз",
+    "ru": "От",
+    "en": "From"
+  },
+  "common.to": {
+    "tg": "То",
+    "ru": "До",
+    "en": "To"
+  },
+  "common.fromValue": {
+    "tg": "аз {{v}}",
+    "ru": "от {{v}}",
+    "en": "from {{v}}"
+  },
+  "common.toValue": {
+    "tg": "то {{v}}",
+    "ru": "до {{v}}",
+    "en": "to {{v}}"
+  },
+  "common.remove": {
+    "tg": "Бардоштан",
+    "ru": "Убрать",
+    "en": "Remove"
+  }
+}

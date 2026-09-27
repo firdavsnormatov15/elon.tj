@@ -1,0 +1,237 @@
+{
+  "meta.messages.title": {
+    "tg": "Паёмҳо — elon.tj",
+    "ru": "Сообщения — elon.tj",
+    "en": "Messages — elon.tj"
+  },
+  "meta.messages.desc": {
+    "tg": "Муколамаҳои шумо бо харидорон ва фурӯшандагон дар elon.tj.",
+    "ru": "Ваши переписки с покупателями и продавцами на elon.tj.",
+    "en": "Your chats with buyers and sellers on elon.tj."
+  },
+  "meta.messages.ogTitle": {
+    "tg": "Паёмҳо дар elon.tj",
+    "ru": "Сообщения на elon.tj",
+    "en": "Messages on elon.tj"
+  },
+  "meta.messages.ogDesc": {
+    "tg": "Рост дар сомона бо фурӯшанда сӯҳбат кунед.",
+    "ru": "Общайтесь с продавцом прямо на сайте.",
+    "en": "Chat with the seller right on the site."
+  },
+  "messages.title": {
+    "tg": "Паёмҳо",
+    "ru": "Сообщения",
+    "en": "Messages"
+  },
+  "messages.backHome": {
+    "tg": "Ба асосӣ",
+    "ru": "На главную",
+    "en": "To homepage"
+  },
+  "messages.conversations": {
+    "tg": "Муколамаҳо",
+    "ru": "Переписки",
+    "en": "Chats"
+  },
+  "messages.online": {
+    "tg": "Онлайн",
+    "ru": "Онлайн",
+    "en": "Online"
+  },
+  "messages.offline": {
+    "tg": "Офлайн",
+    "ru": "Офлайн",
+    "en": "Offline"
+  },
+  "messages.typing": {
+    "tg": "Нависта истодааст...",
+    "ru": "Печатает...",
+    "en": "Typing..."
+  },
+  "messages.unread": {
+    "tg": "Паёмҳои нахондашуда",
+    "ru": "Непрочитанные сообщения",
+    "en": "Unread messages"
+  },
+  "messages.noConversations": {
+    "tg": "Ҳанӯз муколама нест",
+    "ru": "Пока нет переписок",
+    "en": "No chats yet"
+  },
+  "messages.emptyHint": {
+    "tg": "Эълонро кушоед ва ба фурӯшанда паём нависед",
+    "ru": "Откройте объявление и напишите продавцу",
+    "en": "Open a listing and message the seller"
+  },
+  "messages.noMessages": {
+    "tg": "Ҳанӯз паём нест",
+    "ru": "Сообщений пока нет",
+    "en": "No messages yet"
+  },
+  "messages.pickConversation": {
+    "tg": "Муколамаро интихоб кунед",
+    "ru": "Выберите переписку",
+    "en": "Select a chat"
+  },
+  "messages.noOtherConversations": {
+    "tg": "Муколамаи дигар нест",
+    "ru": "Других переписок нет",
+    "en": "No other chats"
+  },
+  "messages.forwardTo": {
+    "tg": "Ба кӣ равон кунем?",
+    "ru": "Переслать кому?",
+    "en": "Forward to..."
+  },
+  "messages.deleteTitle": {
+    "tg": "Паём нест карда шавад?",
+    "ru": "Удалить сообщение?",
+    "en": "Delete message?"
+  },
+  "messages.deleteText": {
+    "tg": "Ин амал бекор карда намешавад.",
+    "ru": "Это действие нельзя отменить.",
+    "en": "This action cannot be undone."
+  },
+  "messages.backToList": {
+    "tg": "Ба рӯйхат",
+    "ru": "К списку",
+    "en": "Back to list"
+  },
+  "messages.attachFile": {
+    "tg": "Файл замима кардан",
+    "ru": "Прикрепить файл",
+    "en": "Attach a file"
+  },
+  "messages.call": {
+    "tg": "Занг задан",
+    "ru": "Позвонить",
+    "en": "Call"
+  },
+  "messages.callSoon": {
+    "tg": "Функсияи занг ба зудӣ дастрас мешавад",
+    "ru": "Звонки скоро будут доступны",
+    "en": "Calling will be available soon"
+  },
+  "messages.image": {
+    "tg": "Тасвир",
+    "ru": "Фото",
+    "en": "Photo"
+  },
+  "messages.download": {
+    "tg": "Боргирӣ",
+    "ru": "Скачать",
+    "en": "Download"
+  },
+  "messages.greeting": {
+    "tg": "Салом! «{{title}}» ҳанӯз дастрас аст?",
+    "ru": "Здравствуйте! «{{title}}» ещё продаётся?",
+    "en": "Hello! Is “{{title}}” still available?"
+  },
+  "messages.gotImage": {
+    "tg": "Тасвир гирифта шуд, раҳмат!",
+    "ru": "Фото получил, спасибо!",
+    "en": "Got the photo, thanks!"
+  },
+  "messages.gotImages": {
+    "tg": "Тасвирҳо гирифта шуданд, раҳмат!",
+    "ru": "Фото получил, спасибо!",
+    "en": "Got the photos, thanks!"
+  },
+  "messages.gotFile": {
+    "tg": "Файли «{{name}}» гирифта шуд.",
+    "ru": "Файл «{{name}}» получен.",
+    "en": "Received the file “{{name}}”."
+  },
+  "messages.autoReply.1": {
+    "tg": "Фаҳмидам, раҳмат!",
+    "ru": "Понял, спасибо!",
+    "en": "Got it, thanks!"
+  },
+  "messages.autoReply.2": {
+    "tg": "Хуб, ман фикр мекунам.",
+    "ru": "Хорошо, я подумаю.",
+    "en": "Okay, I'll think about it."
+  },
+  "messages.autoReply.3": {
+    "tg": "Ҷолиб аст, бештар нақл кунед.",
+    "ru": "Интересно, расскажите подробнее.",
+    "en": "Interesting, tell me more."
+  },
+  "messages.autoReply.4": {
+    "tg": "Хуб, ман инро мебинам.",
+    "ru": "Хорошо, посмотрю.",
+    "en": "Sure, I'll take a look."
+  },
+  "messages.autoReply.5": {
+    "tg": "Аъло!",
+    "ru": "Отлично!",
+    "en": "Great!"
+  },
+  "ph.chatMsg": {
+    "tg": "Паём нависед...",
+    "ru": "Напишите сообщение...",
+    "en": "Write a message..."
+  },
+  "ok.copied": {
+    "tg": "Нусха бардошта шуд",
+    "ru": "Скопировано",
+    "en": "Copied"
+  },
+  "ok.forwarded": {
+    "tg": "Равон карда шуд",
+    "ru": "Переслано",
+    "en": "Forwarded"
+  },
+  "ok.msgDeleted": {
+    "tg": "Паём нест карда шуд",
+    "ru": "Сообщение удалено",
+    "en": "Message deleted"
+  },
+  "time.yesterdayAt": {
+    "tg": "Дирӯз, {{time}}",
+    "ru": "Вчера, {{time}}",
+    "en": "Yesterday, {{time}}"
+  },
+  "time.dayAt": {
+    "tg": "{{day}}, {{time}}",
+    "ru": "{{day}}, {{time}}",
+    "en": "{{day}}, {{time}}"
+  },
+  "date.weekday.0": {
+    "tg": "Якшанбе",
+    "ru": "Воскресенье",
+    "en": "Sunday"
+  },
+  "date.weekday.1": {
+    "tg": "Душанбе",
+    "ru": "Понедельник",
+    "en": "Monday"
+  },
+  "date.weekday.2": {
+    "tg": "Сешанбе",
+    "ru": "Вторник",
+    "en": "Tuesday"
+  },
+  "date.weekday.3": {
+    "tg": "Чоршанбе",
+    "ru": "Среда",
+    "en": "Wednesday"
+  },
+  "date.weekday.4": {
+    "tg": "Панҷшанбе",
+    "ru": "Четверг",
+    "en": "Thursday"
+  },
+  "date.weekday.5": {
+    "tg": "Ҷумъа",
+    "ru": "Пятница",
+    "en": "Friday"
+  },
+  "date.weekday.6": {
+    "tg": "Шанбе",
+    "ru": "Суббота",
+    "en": "Saturday"
+  }
+}

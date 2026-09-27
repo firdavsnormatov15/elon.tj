@@ -1,0 +1,27 @@
+{
+  "search.found#one": { "tg": "{{n}} эълон ёфт шуд", "ru": "Найдено {{n}} объявление", "en": "{{n}} listing found" },
+  "search.found#few": { "tg": "{{n}} эълон ёфт шуд", "ru": "Найдено {{n}} объявления", "en": "{{n}} listings found" },
+
+  "category.count#one": { "tg": "{{n}} эълон", "ru": "{{n}} объявление", "en": "{{n}} listing" },
+  "category.count#few": { "tg": "{{n}} эълон", "ru": "{{n}} объявления", "en": "{{n}} listings" },
+
+  "favorites.count#one": { "tg": "{{n}} эълон дар рӯйхат", "ru": "{{n}} объявление в списке", "en": "{{n}} ad saved" },
+  "favorites.count#few": { "tg": "{{n}} эълон дар рӯйхат", "ru": "{{n}} объявления в списке", "en": "{{n}} ads saved" },
+
+  "listing.viewsN#one": { "tg": "{{n}} тамошо", "ru": "{{n}} просмотр", "en": "{{n}} view" },
+  "listing.viewsN#few": { "tg": "{{n}} тамошо", "ru": "{{n}} просмотра", "en": "{{n}} views" },
+
+  "listing.adsN#one": { "tg": "{{n}} эълон", "ru": "{{n}} объявление", "en": "{{n}} listing" },
+  "listing.adsN#few": { "tg": "{{n}} эълон", "ru": "{{n}} объявления", "en": "{{n}} listings" },
+
+  "profile.listingsN#one": { "tg": "{{n}} эълон", "ru": "{{n}} объявление", "en": "{{n}} listing" },
+  "profile.listingsN#few": { "tg": "{{n}} эълон", "ru": "{{n}} объявления", "en": "{{n}} listings" },
+
+  "post.charsN#one": { "tg": "{{n}} ҳарф", "ru": "{{n}} символ", "en": "{{n}} character" },
+  "post.charsN#few": { "tg": "{{n}} ҳарф", "ru": "{{n}} символа", "en": "{{n}} characters" },
+
+  "time.minutesAgo#one": { "tg": "{{n}} дақиқа пеш", "ru": "{{n}} минуту назад", "en": "{{n}} min ago" },
+  "time.hoursAgo#one": { "tg": "{{n}} соат пеш", "ru": "{{n}} час назад", "en": "{{n}} h ago" },
+  "time.daysAgo#one": { "tg": "{{n}} рӯз пеш", "ru": "{{n}} день назад", "en": "{{n}} day ago" },
+  "time.daysAgo#few": { "tg": "{{n}} рӯз пеш", "ru": "{{n}} дня назад", "en": "{{n}} days ago" }
+}

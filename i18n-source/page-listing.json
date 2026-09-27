@@ -1,0 +1,167 @@
+{
+  "meta.listing.title": {
+    "tg": "Эълон — elon.tj",
+    "ru": "Объявление — elon.tj",
+    "en": "Listing — elon.tj"
+  },
+  "meta.listing.titleWith": {
+    "tg": "{{title}} — elon.tj",
+    "ru": "{{title}} — elon.tj",
+    "en": "{{title}} — elon.tj"
+  },
+  "meta.listing.desc": {
+    "tg": "Тафсилоти эълон: нарх, ҳолат, шаҳр ва тамос бо фурӯшанда дар elon.tj.",
+    "ru": "Детали объявления: цена, состояние, город и контакты продавца на elon.tj.",
+    "en": "Listing details: price, condition, city and seller contacts on elon.tj."
+  },
+  "meta.listing.ogTitle": {
+    "tg": "Эълон дар elon.tj",
+    "ru": "Объявление на elon.tj",
+    "en": "Listing on elon.tj"
+  },
+  "meta.listing.ogDesc": {
+    "tg": "Бинед, муқоиса кунед ва бо фурӯшанда рост тамос гиред.",
+    "ru": "Смотрите, сравнивайте и связывайтесь с продавцом напрямую.",
+    "en": "Browse, compare and contact the seller directly."
+  },
+  "listing.features": {
+    "tg": "Хусусиятҳо",
+    "ru": "Характеристики",
+    "en": "Details"
+  },
+  "listing.description": {
+    "tg": "Тавсиф",
+    "ru": "Описание",
+    "en": "Description"
+  },
+  "listing.related": {
+    "tg": "Эълонҳои монанд",
+    "ru": "Похожие объявления",
+    "en": "Similar listings"
+  },
+  "listing.price": {
+    "tg": "Нарх",
+    "ru": "Цена",
+    "en": "Price"
+  },
+  "listing.call": {
+    "tg": "Занг занед",
+    "ru": "Позвонить",
+    "en": "Call"
+  },
+  "listing.message": {
+    "tg": "Паём нависед",
+    "ru": "Написать сообщение",
+    "en": "Send a message"
+  },
+  "listing.messageShort": {
+    "tg": "Паём",
+    "ru": "Написать",
+    "en": "Message"
+  },
+  "listing.share": {
+    "tg": "Мубодила кардан",
+    "ru": "Поделиться",
+    "en": "Share"
+  },
+  "listing.safety": {
+    "tg": "Пеш аз пардохт молро шахсан бинед. Ҳеҷ гоҳ пешакӣ пул нафиристед.",
+    "ru": "Осмотрите товар лично перед оплатой. Никогда не отправляйте деньги заранее.",
+    "en": "Inspect the item in person before paying. Never send money in advance."
+  },
+  "listing.notFound": {
+    "tg": "Эълон ёфт нашуд",
+    "ru": "Объявление не найдено",
+    "en": "Listing not found"
+  },
+  "listing.notFoundHint": {
+    "tg": "Мумкин аст ин эълон нест карда шудааст",
+    "ru": "Возможно, это объявление удалено",
+    "en": "It may have been removed"
+  },
+  "listing.toHome": {
+    "tg": "Ба саҳифаи асосӣ",
+    "ru": "На главную",
+    "en": "Go to homepage"
+  },
+  "listing.viewsN": {
+    "tg": "{{n}} тамошо",
+    "ru": "{{n}} просмотров",
+    "en": "{{n}} views"
+  },
+  "listing.adsN": {
+    "tg": "{{n}} эълон",
+    "ru": "{{n}} объявлений",
+    "en": "{{n}} listings"
+  },
+  "listing.fieldCategory": {
+    "tg": "Категория",
+    "ru": "Категория",
+    "en": "Category"
+  },
+  "listing.fieldCondition": {
+    "tg": "Ҳолат",
+    "ru": "Состояние",
+    "en": "Condition"
+  },
+  "listing.fieldCity": {
+    "tg": "Шаҳр",
+    "ru": "Город",
+    "en": "City"
+  },
+  "listing.fieldId": {
+    "tg": "ID",
+    "ru": "ID",
+    "en": "ID"
+  },
+  "listing.fieldBrand": {
+    "tg": "Бренд",
+    "ru": "Бренд",
+    "en": "Brand"
+  },
+  "listing.fieldModel": {
+    "tg": "Модел",
+    "ru": "Модель",
+    "en": "Model"
+  },
+  "listing.imageAlt": {
+    "tg": "Сурати эълон",
+    "ru": "Фото объявления",
+    "en": "Listing photo"
+  },
+  "ok.favAdded": {
+    "tg": "Ба дӯстдоштаҳо илова шуд",
+    "ru": "Добавлено в избранное",
+    "en": "Added to favorites"
+  },
+  "ok.favRemoved": {
+    "tg": "Аз дӯстдоштаҳо бароварда шуд",
+    "ru": "Удалено из избранного",
+    "en": "Removed from favorites"
+  },
+  "ok.linkCopied": {
+    "tg": "Линк нусха бардошта шуд",
+    "ru": "Ссылка скопирована",
+    "en": "Link copied"
+  },
+  "common.copy": {
+    "tg": "Нусха бардоштан",
+    "ru": "Копировать",
+    "en": "Copy"
+  },
+  "common.reply": {
+    "tg": "Ҷавоб додан",
+    "ru": "Ответить",
+    "en": "Reply"
+  },
+  "common.forward": {
+    "tg": "Равон кардан",
+    "ru": "Переслать",
+    "en": "Forward"
+  },
+  "common.you": {
+    "tg": "Шумо",
+    "ru": "Вы",
+    "en": "You"
+  }
+}

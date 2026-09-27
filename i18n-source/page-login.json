@@ -1,0 +1,21 @@
+{
+  "meta.login.title": { "tg": "Ворид шудан — elon.tj", "ru": "Вход — elon.tj", "en": "Log in — elon.tj" },
+  "meta.login.desc": { "tg": "Ба ҳисоби elon.tj ворид шавед — эълонҳо, паёмҳо ва дӯстдоштаҳо.", "ru": "Войдите в аккаунт elon.tj — объявления, сообщения и избранное.", "en": "Log in to your elon.tj account — ads, messages and favorites." },
+  "meta.login.ogTitle": { "tg": "Ворид шудан — elon.tj", "ru": "Вход — elon.tj", "en": "Log in — elon.tj" },
+  "meta.login.ogDesc": { "tg": "Ба ҳисоби худ ворид шавед ва эълон гузоред.", "ru": "Войдите в аккаунт и размещайте объявления.", "en": "Log in and start posting ads." },
+
+  "login.title": { "tg": "Ворид шудан", "ru": "Вход", "en": "Log in" },
+  "login.subtitle": { "tg": "Ба ҳисоби худ ворид шавед", "ru": "Войдите в свой аккаунт", "en": "Sign in to your account" },
+  "login.remember": { "tg": "Маро ёд кун", "ru": "Запомнить меня", "en": "Remember me" },
+  "login.forgot": { "tg": "Паролро фаромӯш?", "ru": "Забыли пароль?", "en": "Forgot password?" },
+  "login.submit": { "tg": "Ворид шудан →", "ru": "Войти →", "en": "Log in →" },
+  "login.noAccount": { "tg": "Ҳисоб надоред?", "ru": "Нет аккаунта?", "en": "No account?" },
+  "login.registerLink": { "tg": "Бақайдгирӣ", "ru": "Регистрация", "en": "Sign up" },
+
+  "ph.emailOrPhone": { "tg": "Email ё телефон", "ru": "Email или телефон", "en": "Email or phone" },
+  "ph.password": { "tg": "Парол", "ru": "Пароль", "en": "Password" },
+
+  "err.required": { "tg": "Ин майдон ҳатмист", "ru": "Обязательное поле", "en": "This field is required" },
+  "err.emailOrPhoneInvalid": { "tg": "Email ё рақами телефонро дуруст нависед", "ru": "Введите корректный email или телефон", "en": "Enter a valid email or phone number" },
+  "err.passwordShort": { "tg": "Парол бояд аз 6 аломат кам набошад", "ru": "Пароль должен быть не менее 6 символов", "en": "Password must be at least 6 characters" }
+}

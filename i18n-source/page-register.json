@@ -1,0 +1,22 @@
+{
+  "meta.register.title": { "tg": "Бақайдгирӣ — elon.tj", "ru": "Регистрация — elon.tj", "en": "Sign up — elon.tj" },
+  "meta.register.desc": { "tg": "Дар elon.tj ройгон сабти ном шавед ва эълони худро гузоред.", "ru": "Бесплатно зарегистрируйтесь на elon.tj и разместите объявление.", "en": "Sign up on elon.tj for free and post your ad." },
+  "meta.register.ogTitle": { "tg": "Бақайдгирӣ — elon.tj", "ru": "Регистрация — elon.tj", "en": "Sign up — elon.tj" },
+  "meta.register.ogDesc": { "tg": "Ҳисоби нав созед — дар як дақиқа ва ройгон.", "ru": "Создайте аккаунт — за минуту и бесплатно.", "en": "Create an account — in a minute, for free." },
+
+  "register.title": { "tg": "Бақайдгирӣ", "ru": "Регистрация", "en": "Sign up" },
+  "register.subtitle": { "tg": "Ҳисоби нав созед", "ru": "Создайте новый аккаунт", "en": "Create a new account" },
+  "register.agree": { "tg": "Ман бо <a href=\"#\" style=\"color:#0F7A6B;\">қоидаҳо</a> розӣ ҳастам", "ru": "Я согласен с <a href=\"#\" style=\"color:#0F7A6B;\">правилами</a>", "en": "I agree to the <a href=\"#\" style=\"color:#0F7A6B;\">terms</a>" },
+  "register.submit": { "tg": "Бақайдгирӣ →", "ru": "Зарегистрироваться →", "en": "Sign up →" },
+  "register.haveAccount": { "tg": "Ҳисоб доред?", "ru": "Уже есть аккаунт?", "en": "Already have an account?" },
+  "register.loginLink": { "tg": "Ворид шудан", "ru": "Войти", "en": "Log in" },
+
+  "ph.name": { "tg": "Ном", "ru": "Имя", "en": "Name" },
+  "ph.phone": { "tg": "Телефон", "ru": "Телефон", "en": "Phone" },
+  "ph.email": { "tg": "Email", "ru": "Email", "en": "Email" },
+
+  "err.nameShort": { "tg": "Ном бояд аз 2 ҳарф кам набошад", "ru": "Имя должно быть не короче 2 символов", "en": "Name must be at least 2 characters" },
+  "err.phoneInvalid": { "tg": "Рақами телефонро дуруст нависед", "ru": "Введите корректный номер телефона", "en": "Enter a valid phone number" },
+  "err.emailInvalid": { "tg": "Email-ро дуруст нависед", "ru": "Введите корректный email", "en": "Enter a valid email" },
+  "err.termsRequired": { "tg": "Бо қоидаҳо розӣ шавед", "ru": "Примите правила", "en": "Please accept the terms" }
+}

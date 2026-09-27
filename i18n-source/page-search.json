@@ -1,0 +1,157 @@
+{
+  "meta.search.title": {
+    "tg": "Ҷустуҷӯи эълонҳо — elon.tj",
+    "ru": "Поиск объявлений — elon.tj",
+    "en": "Search listings — elon.tj"
+  },
+  "meta.search.desc": {
+    "tg": "Ҷустуҷӯи эълонҳо дар elon.tj: мошин, хона, телефон, электроника ва бисёр чизи дигар.",
+    "ru": "Поиск объявлений на elon.tj: авто, недвижимость, телефоны, электроника и многое другое.",
+    "en": "Search listings on elon.tj: cars, property, phones, electronics and much more."
+  },
+  "meta.search.ogTitle": {
+    "tg": "Ҷустуҷӯи эълонҳо дар elon.tj",
+    "ru": "Поиск объявлений на elon.tj",
+    "en": "Search listings on elon.tj"
+  },
+  "meta.search.ogDesc": {
+    "tg": "Филтр аз рӯи категория, шаҳр, нарх ва ҳолати мол.",
+    "ru": "Фильтр по категории, городу, цене и состоянию товара.",
+    "en": "Filter by category, city, price and item condition."
+  },
+  "search.title": {
+    "tg": "Ҷустуҷӯ",
+    "ru": "Поиск",
+    "en": "Search"
+  },
+  "search.heading": {
+    "tg": "Ҷустуҷӯи эълонҳо",
+    "ru": "Поиск объявлений",
+    "en": "Search listings"
+  },
+  "search.category": {
+    "tg": "Категория",
+    "ru": "Категория",
+    "en": "Category"
+  },
+  "search.subcategory": {
+    "tg": "Зердаста",
+    "ru": "Подкатегория",
+    "en": "Subcategory"
+  },
+  "search.city": {
+    "tg": "Шаҳр",
+    "ru": "Город",
+    "en": "City"
+  },
+  "search.condition": {
+    "tg": "Ҳолат",
+    "ru": "Состояние",
+    "en": "Condition"
+  },
+  "search.priceFrom": {
+    "tg": "Нарх аз",
+    "ru": "Цена от",
+    "en": "Price from"
+  },
+  "search.priceTo": {
+    "tg": "Нарх то",
+    "ru": "Цена до",
+    "en": "Price to"
+  },
+  "search.found": {
+    "tg": "{{n}} эълон ёфт шуд",
+    "ru": "Найдено {{n}} объявлений",
+    "en": "{{n}} listings found"
+  },
+  "search.emptyTitle": {
+    "tg": "Чизе ёфт нашуд",
+    "ru": "Ничего не найдено",
+    "en": "Nothing found"
+  },
+  "search.emptyText": {
+    "tg": "Калимаи дигарро кӯшиш кунед ё филтрҳоро тоза кунед",
+    "ru": "Попробуйте другой запрос или сбросьте фильтры",
+    "en": "Try another query or reset the filters"
+  },
+  "search.emptyReset": {
+    "tg": "Тоза кардани филтрҳо",
+    "ru": "Сбросить фильтры",
+    "en": "Reset filters"
+  },
+  "ph.searchQuery": {
+    "tg": "Ном, тавсиф ё шаҳр...",
+    "ru": "Название, описание или город...",
+    "en": "Title, description or city..."
+  },
+  "common.filters": {
+    "tg": "Филтрҳо",
+    "ru": "Фильтры",
+    "en": "Filters"
+  },
+  "common.showResults": {
+    "tg": "Натиҷаро нишон диҳ",
+    "ru": "Показать результаты",
+    "en": "Show results"
+  },
+  "common.sort": {
+    "tg": "Тартиб",
+    "ru": "Сортировка",
+    "en": "Sort"
+  },
+  "common.sortNewest": {
+    "tg": "Навтарин",
+    "ru": "Новые",
+    "en": "Newest"
+  },
+  "common.sortCheapest": {
+    "tg": "Арзонтарин",
+    "ru": "Дешевле",
+    "en": "Cheapest"
+  },
+  "common.sortExpensive": {
+    "tg": "Гаронтарин",
+    "ru": "Дороже",
+    "en": "Most expensive"
+  },
+  "common.sortPopular": {
+    "tg": "Маъмултарин",
+    "ru": "Популярные",
+    "en": "Most popular"
+  },
+  "common.page": {
+    "tg": "Саҳифаи {{n}}",
+    "ru": "Страница {{n}}",
+    "en": "Page {{n}}"
+  },
+  "common.pagination": {
+    "tg": "Саҳифабандӣ",
+    "ru": "Постраничная навигация",
+    "en": "Pagination"
+  },
+  "nav.breadcrumb": {
+    "tg": "Роҳи саҳифа",
+    "ru": "Навигационная цепочка",
+    "en": "Breadcrumb"
+  },
+  "nav.post": {
+    "tg": "+ Эълон",
+    "ru": "+ Объявление",
+    "en": "+ Post ad"
+  },
+  "menu.newListing": {
+    "tg": "Эълони нав",
+    "ru": "Новое объявление",
+    "en": "New listing"
+  },
+  "footer.tagline": {
+    "tg": "Сомонаи беҳтарини эълонҳои Тоҷикистон",
+    "ru": "Лучший сайт объявлений Таджикистана",
+    "en": "Tajikistan's leading classifieds site"
+  },
+  "footer.copyright": {
+    "tg": "© 2026 elon.tj. Ҳамаи ҳуқуқҳо ҳифз шудаанд.",
+    "ru": "© 2026 elon.tj. Все права защищены.",
+    "en": "© 2026 elon.tj. All rights reserved."
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "meta.favorites.title": { "tg": "Дӯстдоштаҳо — elon.tj", "ru": "Избранное — elon.tj", "en": "Favorites — elon.tj" },
+  "meta.favorites.desc": { "tg": "Эълонҳои дӯстдоштаи шумо дар elon.tj — ҳама дар як ҷой.", "ru": "Ваши избранные объявления на elon.tj — все в одном месте.", "en": "Your saved ads on elon.tj — all in one place." },
+  "meta.favorites.ogTitle": { "tg": "Дӯстдоштаҳои ман — elon.tj", "ru": "Моё избранное — elon.tj", "en": "My favorites — elon.tj" },
+  "meta.favorites.ogDesc": { "tg": "Эълонҳоеро, ки писандидед, дар ин ҷо нигоҳ доред.", "ru": "Сохраняйте здесь понравившиеся объявления.", "en": "Keep the ads you liked here." },
+
+  "favorites.title": { "tg": "Дӯстдоштаҳои ман", "ru": "Моё избранное", "en": "My favorites" },
+  "favorites.count": { "tg": "{{n}} эълон дар рӯйхат", "ru": "{{n}} объявлений в списке", "en": "{{n}} ads saved" },
+  "favorites.emptyTitle": { "tg": "Ҳанӯз ягон эълон дӯстдошта нест", "ru": "В избранном пока ничего нет", "en": "Nothing in favorites yet" },
+  "favorites.emptyText": { "tg": "Тугмаи дилчаро дар эълонҳо зер кунед, то дар ин ҷо пайдо шаванд", "ru": "Нажимайте на сердечко в объявлениях — и они появятся здесь", "en": "Tap the heart on any ad and it will show up here" },
+  "favorites.browse": { "tg": "Тамошои эълонҳо", "ru": "Смотреть объявления", "en": "Browse ads" }
+}

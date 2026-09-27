@@ -1,0 +1,152 @@
+{
+  "meta.profile.title": {
+    "tg": "Профили ман — elon.tj",
+    "ru": "Мой профиль — elon.tj",
+    "en": "My profile — elon.tj"
+  },
+  "meta.profile.desc": {
+    "tg": "Профили корбар дар elon.tj: эълонҳои ман, дӯстдоштаҳо ва омор.",
+    "ru": "Профиль пользователя на elon.tj: мои объявления, избранное и статистика.",
+    "en": "Your elon.tj profile: your listings, favorites and stats."
+  },
+  "meta.profile.ogTitle": {
+    "tg": "Профили ман дар elon.tj",
+    "ru": "Мой профиль на elon.tj",
+    "en": "My elon.tj profile"
+  },
+  "meta.profile.ogDesc": {
+    "tg": "Эълонҳои худро идора кунед ва дӯстдоштаҳоро бинед.",
+    "ru": "Управляйте своими объявлениями и смотрите избранное.",
+    "en": "Manage your listings and view your favorites."
+  },
+  "profile.you": {
+    "tg": "Шумо",
+    "ru": "Вы",
+    "en": "You"
+  },
+  "profile.noRating": {
+    "tg": "Рейтинг нест",
+    "ru": "Нет рейтинга",
+    "en": "No rating yet"
+  },
+  "profile.listingsN": {
+    "tg": "{{n}} эълон",
+    "ru": "{{n}} объявлений",
+    "en": "{{n}} listings"
+  },
+  "profile.since": {
+    "tg": "Аз соли {{year}}",
+    "ru": "С {{year}} года",
+    "en": "Since {{year}}"
+  },
+  "profile.infoTitle": {
+    "tg": "Иттилоот",
+    "ru": "Информация",
+    "en": "Information"
+  },
+  "profile.addPhone": {
+    "tg": "Телефон илова кунед",
+    "ru": "Добавьте телефон",
+    "en": "Add a phone number"
+  },
+  "profile.location": {
+    "tg": "Душанбе, Тоҷикистон",
+    "ru": "Душанбе, Таджикистан",
+    "en": "Dushanbe, Tajikistan"
+  },
+  "profile.statsTitle": {
+    "tg": "Омор",
+    "ru": "Статистика",
+    "en": "Stats"
+  },
+  "profile.statListings": {
+    "tg": "Эълонҳо",
+    "ru": "Объявления",
+    "en": "Listings"
+  },
+  "profile.statFavorites": {
+    "tg": "Дӯстдоштаҳо",
+    "ru": "Избранное",
+    "en": "Favorites"
+  },
+  "profile.statUnread": {
+    "tg": "Паёмҳои нахондашуда",
+    "ru": "Непрочитанные",
+    "en": "Unread messages"
+  },
+  "profile.statViews": {
+    "tg": "Тамошоҳо",
+    "ru": "Просмотры",
+    "en": "Views"
+  },
+  "profile.tabsLabel": {
+    "tg": "Бахшҳои профил",
+    "ru": "Разделы профиля",
+    "en": "Profile sections"
+  },
+  "profile.tabMine": {
+    "tg": "Эълонҳои ман",
+    "ru": "Мои объявления",
+    "en": "My listings"
+  },
+  "profile.tabFavorites": {
+    "tg": "Дӯстдоштаҳо",
+    "ru": "Избранное",
+    "en": "Favorites"
+  },
+  "profile.tabViewed": {
+    "tg": "Тамошои охирин",
+    "ru": "Вы смотрели",
+    "en": "Recently viewed"
+  },
+  "profile.emptyTitle": {
+    "tg": "Эълон нест",
+    "ru": "Объявлений нет",
+    "en": "No listings"
+  },
+  "profile.emptyText": {
+    "tg": "Шумо ҳоло ягон эълон надоред",
+    "ru": "У вас пока нет объявлений",
+    "en": "You have no listings yet"
+  },
+  "profile.emptyCta": {
+    "tg": "Эълон гузоред",
+    "ru": "Подать объявление",
+    "en": "Post a listing"
+  },
+  "profile.emptyFavTitle": {
+    "tg": "Дӯстдошта нест",
+    "ru": "Избранное пусто",
+    "en": "No favorites"
+  },
+  "profile.emptyFavText": {
+    "tg": "Эълонҳои писандидаро бо ♥ нигоҳ доред",
+    "ru": "Сохраняйте понравившиеся объявления через ♥",
+    "en": "Save listings you like with ♥"
+  },
+  "profile.emptyFavCta": {
+    "tg": "Ба ҷустуҷӯ",
+    "ru": "К поиску",
+    "en": "Go to search"
+  },
+  "profile.emptySeenTitle": {
+    "tg": "Ҳоло чизе надидаед",
+    "ru": "Вы ничего не смотрели",
+    "en": "Nothing viewed yet"
+  },
+  "profile.emptySeenText": {
+    "tg": "Эълонҳои тамошокардаи шумо дар ин ҷо пайдо мешаванд",
+    "ru": "Здесь появятся объявления, которые вы смотрели",
+    "en": "Listings you view will appear here"
+  },
+  "profile.emptySeenCta": {
+    "tg": "Ба саҳифаи асосӣ",
+    "ru": "На главную",
+    "en": "Go to home"
+  },
+  "profile.confirmDelete": {
+    "tg": "Ин эълонро нест кунам?",
+    "ru": "Удалить это объявление?",
+    "en": "Delete this listing?"
+  }
+}

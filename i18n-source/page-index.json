@@ -1,0 +1,102 @@
+{
+  "meta.index.title": {
+    "tg": "elon.tj — Бозори электронии Тоҷикистон",
+    "ru": "elon.tj — Доска объявлений Таджикистана",
+    "en": "elon.tj — Classifieds in Tajikistan"
+  },
+  "meta.index.desc": {
+    "tg": "elon.tj — бозори электронии беҳтарини Тоҷикистон. Мошин, хона, электроника, кор ва ҳазорҳо эълони дигар.",
+    "ru": "elon.tj — лучшая доска объявлений Таджикистана. Авто, квартиры, электроника, работа и тысячи других объявлений.",
+    "en": "elon.tj — Tajikistan's biggest marketplace. Cars, homes, electronics, jobs and thousands of other ads."
+  },
+  "meta.index.keywords": {
+    "tg": "бозор, эълон, Тоҷикистон, мошин, хона, кор, электроника",
+    "ru": "барахолка, объявления, Таджикистан, авто, квартиры, работа, электроника",
+    "en": "marketplace, classifieds, Tajikistan, cars, apartments, jobs, electronics"
+  },
+  "meta.index.ogTitle": {
+    "tg": "elon.tj — Бозори электронии Тоҷикистон",
+    "ru": "elon.tj — Доска объявлений Таджикистана",
+    "en": "elon.tj — Classifieds in Tajikistan"
+  },
+  "meta.index.ogDesc": {
+    "tg": "Ҳар чизе ки меҷӯед — мошин, хона, кор ё электроника. Ҳама дар як ҷой!",
+    "ru": "Всё, что вы ищете — авто, квартира, работа или электроника. Всё в одном месте!",
+    "en": "Everything you are looking for — cars, homes, jobs or electronics. All in one place!"
+  },
+  "ph.search": {
+    "tg": "Ҷустуҷӯи эълонҳо…",
+    "ru": "Поиск объявлений…",
+    "en": "Search ads…"
+  },
+  "ph.searchCount": {
+    "tg": "Ҷустуҷӯ дар байни {{n}} эълон…",
+    "ru": "Поиск среди {{n}} объявлений…",
+    "en": "Search {{n}} ads…"
+  },
+  "index.promoTitle": {
+    "tg": "Эълони худро ройгон гузоред",
+    "ru": "Разместите объявление бесплатно",
+    "en": "Post your ad for free"
+  },
+  "index.promoSub": {
+    "tg": "Фурӯшед, харед ё хидмат пешниҳод кунед — дар тамоми Тоҷикистон",
+    "ru": "Продавайте, покупайте или предлагайте услуги — по всему Таджикистану",
+    "en": "Sell, buy or offer services — anywhere in Tajikistan"
+  },
+  "index.latest": {
+    "tg": "Эълонҳои нав",
+    "ru": "Новые объявления",
+    "en": "Latest ads"
+  },
+  "index.allListings": {
+    "tg": "Ҳамаи эълонҳо",
+    "ru": "Все объявления",
+    "en": "All ads"
+  },
+  "index.allCategories": {
+    "tg": "Ҳамаи рубрикаҳо",
+    "ru": "Все рубрики",
+    "en": "All categories"
+  },
+  "index.whyTitle": {
+    "tg": "Чаро elon.tj?",
+    "ru": "Почему elon.tj?",
+    "en": "Why elon.tj?"
+  },
+  "index.whySub": {
+    "tg": "Содда, зуд ва бехатар",
+    "ru": "Просто, быстро и безопасно",
+    "en": "Simple, fast and safe"
+  },
+  "index.fast": {
+    "tg": "Зуд",
+    "ru": "Быстро",
+    "en": "Fast"
+  },
+  "index.fastDesc": {
+    "tg": "Эълонро дар 1 дақиқа гузоред",
+    "ru": "Разместите объявление за 1 минуту",
+    "en": "Post an ad in 1 minute"
+  },
+  "index.safe": {
+    "tg": "Бехатар",
+    "ru": "Безопасно",
+    "en": "Safe"
+  },
+  "index.safeDesc": {
+    "tg": "Системаи рейтинг ва тасдиқ",
+    "ru": "Система рейтингов и проверки",
+    "en": "Ratings and verification"
+  },
+  "index.free": {
+    "tg": "Ройгон",
+    "ru": "Бесплатно",
+    "en": "Free"
+  },
+  "index.freeDesc": {
+    "tg": "Гузоштани эълонҳо бепул",
+    "ru": "Размещение объявлений бесплатно",
+    "en": "Posting ads costs nothing"
+  }
+}
